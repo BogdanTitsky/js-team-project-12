@@ -1,0 +1,85 @@
+.library-cards {
+padding-top: 44px;
+}
+
+
+.libr-error{
+    font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 28px;
+
+text-align: center;
+}
+.libr-catch {
+    gap: 20px;
+    
+}
+.btn-libr {
+        display: flex;
+    
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+border-radius: 74px;
+border: none;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 14px;
+
+
+display: flex;
+align-items: center;
+text-align: center;
+
+
+padding: 12px 24px;
+transition: transform 300ms;
+/* transition: background-color 200ms; */
+
+}
+/* ====================================/ */
+@media screen and (min-width: 768px) {
+    .libr-error {
+        font-weight: 400;
+font-size: 24px;
+line-height: 32px;
+width: 438px;
+display: flex;
+margin-left: auto;
+margin-right: auto;
+    }
+    .btn-libr {
+        font-size: 14px;
+line-height: 16px;
+
+    }
+    .library-cards {
+padding-top: 80px;
+}
+}
+/* ========================== */
+@media screen and (min-width: 1200px) {
+  .libr-error {
+    font-size: 32px;
+line-height: 36px;
+width: 584px;
+  }
+  .btn-libr {
+    font-size: 18px;
+line-height: 28px;
+  }
+  .library-cards {
+padding-top: 160px;
+}
+}
+.btn-libr:hover {
+background: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
+box-shadow: 1px 1px 14px rgba(1, 1, 1, 0.25);
+transform: scale(105%);
+}
