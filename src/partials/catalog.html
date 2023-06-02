@@ -1,13 +1,34 @@
 <section class="catalog">
-   <div class="container">
-      <form class="form-search">
-         <input type="text" name="search" placeholder="Search"/>
+  <div class="container">
+    <form class="form-search">
+      <input type="text" name="search" placeholder="Search" />
 
-         <button class="btn-search" type="submit">
-           <svg class="icon-search" width="20" height="20">
-             <use href="../img/search.svg"></use>
-           </svg>
-         </button>
-      </form>
-   </div>
+      <button class="btn-search" type="submit">
+        <svg class="icon-search" width="20" height="20">
+          <use href="../img/search.svg"></use>
+        </svg>
+      </button>
+    </form>
+    <ul class="catalog-films-list">
+      <li>
+        <a href="${webformatURL}" class="photo-card">
+          <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+          <div class="info">
+            <p class="info-item">
+              <b>Likes: ${likes}</b>
+            </p>
+            <p class="info-item">
+              <b>Views: ${views}</b>
+            </p>
+            <p class="info-item">
+              <b>Comments: ${comments}</b>
+            </p>
+            <p class="info-item">
+              <b>Downloads: ${downloads}</b>
+            </p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
 </section>
