@@ -2,6 +2,7 @@
    display: flex;
    gap: 16px;
    justify-content: center;
+   padding-top: 40px;
 }
 
 .form-search input {
@@ -36,6 +37,11 @@ padding-bottom: 10px;
 }
 
 @media screen and (min-width: 768px) {
+   .form-search {
+      padding-top: 60px;
+   }
+
+   
    .form-search input {
       width: 204px;
       padding-top: 12px;
@@ -48,6 +54,10 @@ padding-bottom: 10px;
  }
 
  @media screen and (min-width: 1200px) {
+   .form-search {
+      padding-top: 80px;
+   }
+   
    .form-search input {
       width: 334px;
       padding-left: 24px;
