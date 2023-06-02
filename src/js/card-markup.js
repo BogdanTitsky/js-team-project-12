@@ -23,7 +23,7 @@ async function renderMovieList() {
   try {
     const movies = await getMovieArray();
     const markup = makeMarkup(movies);
-    filmList.insertAdjacentHTML('beforeend', markup);
+    filmList.innerHTML = markup;
   } catch (error) {
     console.error('Помилка при рендерингу списку фільмів:', error);
   }
@@ -54,3 +54,5 @@ function makeMarkup(arr) {
 }
 
 renderMovieList();
+
+export {makeMarkup};
