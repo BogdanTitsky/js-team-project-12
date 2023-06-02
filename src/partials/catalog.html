@@ -2,14 +2,20 @@
   <div class="container">
     <form class="form-search">
       <input type="text" name="search" placeholder="Search" />
-
       <button class="btn-search" type="submit">
         <svg class="icon-search" width="20" height="20">
           <use href="../img/search.svg"></use>
         </svg>
       </button>
     </form>
-    <ul class="catalog-films-list">
+  </div>
+  <div>
+         <button class="btn-search" type="submit">
+            <img src="../img/search.svg" alt="search">
+         </button>
+      </form>
+   </div>
+<ul class="catalog-films-list">
       <li>
         <a href="${webformatURL}" class="photo-card">
           <img src="${webformatURL}" alt="${tags}" loading="lazy" />
@@ -30,5 +36,5 @@
         </a>
       </li>
     </ul>
-  </div>
 </section>
+
