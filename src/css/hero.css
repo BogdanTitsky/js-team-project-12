@@ -1,0 +1,44 @@
+.hero{
+    background-image: linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(../img/mobile-hero-placeholder-img.jpg);
+    max-width: 100vw;
+    max-height: 380px;
+    background-position: center;
+    background-size: cover;
+    
+    
+}
+.hero-content{
+    text-align: left;
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+.hero-title{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    width: 199px;
+    color: #F8F8F8;
+    margin-bottom: 8px;
+}
+.hero-text{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    width: 166px;
+    color: #F8F8F8;
+}
+.get-started-button{
+    padding: 12px 24px;
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+    border-radius: 74px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 32px;
+}
