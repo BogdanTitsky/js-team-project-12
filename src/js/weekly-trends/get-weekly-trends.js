@@ -1,4 +1,4 @@
-import { makeMarkup } from './card-markup.js';
+import { makeMarkup } from '../reuseble/card-markup.js';
 import getTrendsMovie from './movie-tmdb-api.js';
 
 const cardContainer = document.querySelector('.weelky-trends-list');

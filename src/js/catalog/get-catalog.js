@@ -1,6 +1,6 @@
 import axios from 'axios';
-
-const filmList = document.querySelector('.catalog-films-list');
+import { makeMarkup } from '../reuseble/card-markup';
+const filmList = document.querySelector('.weelky-trends-list');
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
 async function getMovieArray() {
@@ -29,30 +29,4 @@ async function renderMovieList() {
   }
 }
 
-function makeMarkup(arr) {
-  return arr
-    .map(
-      ({ poster_path, title, vote_average, release_date }) => `
-<li>
-  <a href="" class="photo-card">
-    <img src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title}" loading="lazy" />
-    <div class="info">
-      <p class="info-item">
-        <b>${title} </b>
-      </p>
-      <p class="info-item">
-        <b>${vote_average}</b>
-      </p>
-      <p class="info-item">
-        <b>${release_date}</b>
-      </p>
-    </div>
-  </a>
-</li>`
-    )
-    .join('');
-}
-
 renderMovieList();
-
-export {makeMarkup};
