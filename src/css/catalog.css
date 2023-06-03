@@ -38,6 +38,12 @@ color: #B7B7B7;
    height: 18px;
 }
 
+.catalog-text-box {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
 .text-error {
    font-family: 'Roboto', sans-serif;
 font-weight: 400;

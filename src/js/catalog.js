@@ -14,7 +14,8 @@ return movie;
 
 const refs = {
 form: document.querySelector('.form-search'),
-filmList: document.querySelector('.catalog-films-list')
+filmList: document.querySelector('.catalog-films-list'),
+textBox: document.querySelector('.catalog-text-box')
 }
 
 refs.form.addEventListener('submit', onSubmitForm)
@@ -24,17 +25,19 @@ async function onSubmitForm(e) {
   const form = e.currentTarget;
   const value = form.elements.search.value.trim();
 
+  
   if (value === "") {
-   Notiflix.Notify.failure('No query!');
+   Notiflix.Notify.failure('No value!');
 return
 }
-
+clearMarkup();
   const getMovie = await getSearchMovie(value);
 
 if (getMovie.length === 0) {
-   return movieList(`<p class='text-error'>OOPS...
+   textError(`<p class='text-error'>OOPS...
     We are very sorry!
     We don't have any results matching your search.</p>`)
+    return
    }
    
   const markupMovie = await makeMarkup(getMovie);
@@ -45,4 +48,11 @@ function movieList(markup) {
    refs.filmList.innerHTML = markup;
 }
 
+function textError(markup) {
+   refs.textBox.innerHTML = markup;
+}
+
+function clearMarkup() {
+   refs.filmList.innerHTML = '';
+ }
 
