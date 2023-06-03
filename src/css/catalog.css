@@ -46,6 +46,14 @@ line-height: 1.1;
 width: 684px;
 text-align: center;
 color: #FFFFFF;
+white-space: pre-line;
+}
+
+.catalog-text-box {
+   padding-top: 120px;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 
@@ -92,3 +100,4 @@ color: #FFFFFF;
          height: 20px;
       }
  }
+
