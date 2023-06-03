@@ -1,0 +1,84 @@
+.hero-library {
+  @media screen and (min-width: 375px) {
+    padding-top: 40px;
+    padding-bottom: 144px;
+
+    background: linear-gradient(
+        79.49deg,
+        #111111 34.1%,
+        rgba(17, 17, 17, 0) 64.67%
+      ),
+      url(../img/hero-cinema-mobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-top: 62px;
+    padding-bottom: 118px;
+
+    background: linear-gradient(
+        79.49deg,
+        #111111 34.1%,
+        rgba(17, 17, 17, 0) 64.67%
+      ),
+      url(../img/hero-cinema-tablet.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 169px;
+    padding-bottom: 249px;
+    background: linear-gradient(
+        79.49deg,
+        #111111 34.1%,
+        rgba(17, 17, 17, 0) 64.67%
+      ),
+      url(../img/hero-cinema-desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.hero-library-title {
+  color: white;
+  @media screen and (min-width: 375px) {
+    max-width: 249px;
+    line-height: 1.19;
+    margin-bottom: 8px;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 357px;
+    line-height: 1.18;
+    margin-bottom: 8px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-left: 117px;
+    max-width: 464px;
+    line-height: 1.17;
+    margin-bottom: 16px;
+  }
+}
+
+.hero-library-text {
+  color: white;
+
+  @media screen and (min-width: 375px) {
+    font-size: 14px;
+    max-width: 249px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    max-width: 357px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-left: 117px;
+    font-size: 16px;
+    max-width: 464px;
+  }
+}
