@@ -1,1 +1,1 @@
-import './js/library';
+import './js/libraryJs/base-library';

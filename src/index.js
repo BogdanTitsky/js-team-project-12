@@ -1,2 +1,2 @@
-import './js/upcoming';
-import './js/weekly-trends';
+import './js/upcoming/upcoming';
+import './js/weekly-trends/base-weekly';
