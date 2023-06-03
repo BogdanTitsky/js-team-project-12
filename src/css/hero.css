@@ -4,9 +4,13 @@
     max-height: 380px;
     background-position: center;
     background-size: cover;
+    
+    
 }
 .hero-content{
     text-align: left;
+    padding-top: 40px;
+    padding-bottom: 80px;
 }
 .hero-title{
     font-family: 'Roboto';
@@ -15,6 +19,7 @@
     font-size: 32px;
     line-height: 38px;
     width: 199px;
+    color: #F8F8F8;
 }
 .hero-text{
     font-family: 'Roboto';
@@ -23,6 +28,7 @@
     font-size: 14px;
     line-height: 16px;
     width: 166px;
+    color: #F8F8F8;
 }
 .get-started-button{
     padding: 12px 24px;
