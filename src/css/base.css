@@ -1,3 +1,9 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: black;
+  color: white;
+}
+
 .container {
   width: 100%;
 
@@ -24,7 +30,6 @@
 }
 
 body {
-  background-color: black;
 }
 
 @media screen and (min-width: 375px) {
@@ -32,7 +37,7 @@ body {
     font-size: 32px;
   }
   h2 {
-    font-size: 14px ;
+    font-size: 14px;
   }
 }
 
@@ -41,7 +46,7 @@ body {
     font-size: 44px;
   }
   h2 {
-    font-size: 14px ;
+    font-size: 14px;
   }
 }
 
@@ -50,7 +55,6 @@ body {
     font-size: 64px;
   }
   h2 {
-    font-size: 16px ;
+    font-size: 16px;
   }
 }
-
