@@ -1,103 +1,148 @@
 .form-search {
-   display: flex;
-   gap: 16px;
-   justify-content: center;
-   padding-top: 40px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding-top: 40px;
 }
 
 .form-search input {
-border: 1px solid #FFFFFF;
-border-radius: 8px;
-width: 224px;
-background-color: transparent;
-padding-left: 20px;
-padding-top: 10px;
-padding-bottom: 10px;
-color: #B7B7B7;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  width: 224px;
+  background-color: transparent;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #b7b7b7;
 }
 
 .form-search input::placeholder {
-   font-family: 'Roboto', sans-serif;
-   font-weight: 500;
-   font-size: 14px;
-   line-height: 1.1;
-   color: #B7B7B7;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #b7b7b7;
 }
 
 .btn-search {
-   border-radius: 50%;
-   border: none;
-   padding: 11px;
-   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-   background: linear-gradient(to top left, #FFC226, #F84119);
-   font-size: 0;
+  border-radius: 50%;
+  border: none;
+  padding: 11px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background: linear-gradient(to top left, #ffc226, #f84119);
+  font-size: 0;
 }
 
 .icon-search {
-   width: 18px;
-   height: 18px;
+  width: 18px;
+  height: 18px;
 }
 
 .text-error {
-   font-family: 'Roboto', sans-serif;
-font-weight: 400;
-font-size: 32px;
-line-height: 1.1;
-width: 684px;
-text-align: center;
-color: #FFFFFF;
-white-space: pre-line;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.1;
+  width: 684px;
+  text-align: center;
+  color: #ffffff;
+  white-space: pre-line;
 }
 
 .catalog-text-box {
-   padding-top: 120px;
-display: flex;
-justify-content: center;
-align-items: center;
+  padding-top: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
 @media screen and (min-width: 768px) {
-   .form-search {
-      padding-top: 60px;
-   }
+  .form-search {
+    padding-top: 60px;
+  }
 
-   
-   .form-search input {
-      width: 204px;
-      padding-top: 12px;
-      padding-bottom: 12px;
-   }
+  .form-search input {
+    width: 204px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 
-   .btn-search {
-      padding: 13px;
-   }
- }
+  .btn-search {
+    padding: 13px;
+  }
+}
 
- @media screen and (min-width: 1200px) {
-   .form-search {
-      padding-top: 80px;
-   }
-   
-   .form-search input {
-      width: 334px;
-      padding-left: 24px;
-      padding-top: 12px;
-      padding-bottom: 12px;
-      }
+@media screen and (min-width: 1200px) {
+  .form-search {
+    padding-top: 80px;
+  }
 
-   .form-search input::placeholder {
-      font-size: 16px;
-      line-height: 0.8;
-   }
+  .form-search input {
+    width: 334px;
+    padding-left: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 
-      .btn-search {
-         padding: 14px;
-      }
+  .form-search input::placeholder {
+    font-size: 16px;
+    line-height: 0.8;
+  }
 
-      .icon-search {
-         width: 20px;
-         height: 20px;
-      }
- }
+  .btn-search {
+    padding: 14px;
+  }
 
+  .icon-search {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.weelky-trends-list {
+}
+
+.film-card {
+  position: relative;
+  width: 280px;
+
+  margin-bottom: 16px;
+}
+
+.film-card-link {
+}
+
+.film-card-img {
+  border-radius: 5px;
+}
+
+.film-card-img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(https://image.tmdb.org/t/p/w300${poster_path});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0 0 12px 12px;
+
+  font-weight: 500;
+}
+
+.info-title {
+}
+
+.info-item {
+  color: var(--color-grey);
+}
