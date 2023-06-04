@@ -1,1 +1,1 @@
-import './example-hero';
+import './get-trailer';
