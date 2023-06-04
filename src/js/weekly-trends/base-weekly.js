@@ -1,2 +1,3 @@
 import './get-weekly-trends';
-import './movie-tmdb-api';
+import '../reuseble/tmdb-api';
+import './star-rating';

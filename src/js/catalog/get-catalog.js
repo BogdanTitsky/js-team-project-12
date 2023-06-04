@@ -22,7 +22,7 @@ async function getMovieArray() {
 async function renderMovieList() {
   try {
     const movies = await getMovieArray();
-    const markup = makeMarkup(movies);
+    const markup = await makeMarkup(movies);
     filmList.innerHTML = markup;
   } catch (error) {
     console.error('Помилка при рендерингу списку фільмів:', error);
