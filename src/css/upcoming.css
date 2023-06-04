@@ -1,3 +1,7 @@
+.upcoming {
+  margin-bottom: 20px;
+}
+
 .upcoming-name {
   text-transform: uppercase;
   font-style: normal;
@@ -90,7 +94,6 @@
   color: #111111;
   font-weight: 500;
   font-size: 12px;
-  margin-top: 20px;
 }
 
 .upcoming-content {
@@ -165,5 +168,9 @@
   }
   .upcoming-content {
     margin-bottom: 50px;
+  }
+
+  .upcoming__btn {
+    transform: translate(820px, -90px);
   }
 }
