@@ -1,4 +1,4 @@
-import makeStarRating from './star-rating-markup';
+import { makeStarRating } from './star-rating';
 import getGenresMap from './genres';
 
 async function makeMarkup(arr) {

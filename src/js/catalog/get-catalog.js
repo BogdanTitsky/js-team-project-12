@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { makeMarkup } from '../reuseble/card-markup';
+import { fillRatings } from '../reuseble/star-rating';
 const filmList = document.querySelector('.weelky-trends-list');
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
@@ -24,6 +25,7 @@ async function renderMovieList() {
     const movies = await getMovieArray();
     const markup = await makeMarkup(movies);
     filmList.innerHTML = markup;
+    fillRatings(filmList)
   } catch (error) {
     console.error('Помилка при рендерингу списку фільмів:', error);
   }
