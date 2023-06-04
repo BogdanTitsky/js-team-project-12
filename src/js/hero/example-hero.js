@@ -12,8 +12,8 @@ async function fetchRandomFilm(){
     }
 }
 
- function loadHeroMarkup(movieArray){
-    const heroMarkup = movieArray.map(({title, backdrop_path, vote_average, overview}) =>{
+ function loadHeroMarkup(data){
+    const heroMarkup = data.map(({title, backdrop_path, vote_average, overview}) =>{
         
            return `
            <h1 class="hero-title">${title}</h1>
@@ -29,5 +29,10 @@ async function fetchRandomFilm(){
    } 
 // functions workflow
 
-fetchRandomFilm();
-loadHeroMarkup();
+fetchRandomFilm()
+    .then((movieArray) => {
+      loadHeroMarkup(movieArray);
+    })
+    .catch((error) => {
+      console.log("Помилка при рендерингу тренду дня!:", error);
+    });
