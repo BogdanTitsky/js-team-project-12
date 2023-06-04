@@ -23,28 +23,14 @@
 }
 
 .rating-active::before {
-    display: flex;
+  content: "★★★★★";
+  display: flex;
     position: absolute;
     width: 0%;
     height: 100%;
     top: 0;
     left: 0;
     color: #F87719;
-}
-
-.rating-items {
-    display: flex;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.rating-item {
-    flex: 0 0 20%;
-    height: 100%;
-    opacity: 0;
 }
 
 .rating-value {

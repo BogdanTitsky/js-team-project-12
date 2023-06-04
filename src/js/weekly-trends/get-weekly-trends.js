@@ -1,6 +1,6 @@
 import { makeMarkup } from '../reuseble/card-markup.js';
 import { getTrendsMovie } from '../reuseble/tmdb-api.js';
-import { fillRatings } from './star-rating';
+import { fillRatings } from '../reuseble/star-rating';
 
 const cardContainer = document.querySelector('.weelky-trends-list');
 
