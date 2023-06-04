@@ -3,6 +3,7 @@ import 'tui-pagination/dist/tui-pagination.min.css';
 import { renderMovieList } from './get-catalog';
 
 const paginationElement = document.querySelector('#tui-pagination-container');
+console.log(paginationElement);
 
 export async function initPagination() {
 
