@@ -1,14 +1,13 @@
 :root {
-  --primary-color: black;
-  --secondary-color: white;
+  --primary-color: #000;
+  --secondary-color: #FFF;
   --accent-color:  #F87719
 }
 
-.container {
+/* .container {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 20px;
-}
+  margin: 0 20px ;
+} */
 
 /* Стили для шапки */
 
@@ -16,35 +15,62 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  background-color: black;
+
+  margin: 0 20px;
+  padding: 8px 0;
+  
+  background-color: var(--primary-color);
 }
 
+.header-container{
+  max-width: 1280px;
+  }
+
+@media screen and (min-width: 768px) {
+  .header{
+    margin: 0 32px;
+    padding: 12px 0;
+  }
+  }
+
+@media screen and (min-width: 1344px) {
+  .header-container{
+    margin: auto;
+  }
+  }
 
 
 .logo-link {
   display: flex;
   align-items: center;
   text-decoration: none;
+  }
 
+  
+.logo-svg {
   width: 32px;
   height: 32px;
   }
 
   @media screen and (min-width: 768px) {
-    .logo-link {
+    .logo-svg {
       width: 48px;
       height: 48px;
       }
   }
 
-.logo-svg {
-
-  }
-
 .logo-title {
-  font-size: 18px;
-  font-weight: bold;
+padding: 10px 0;
+padding-left: 8px;
+
+font-family: 'Roboto';
+font-weight: 400;
+font-size: 24px;
+line-height: 1.16;
+display: flex;
+align-items: center;
+text-align: center;
+color: var(--secondary-color);
 }
 
 .nav-list {
@@ -54,28 +80,89 @@
   padding: 0;
 }
 
-.nav-item {
-  margin-right: 10px;
+.nav-item:not(:last-child) {
+  margin-right: 32px;
 }
 
 .nav-link {
-  text-decoration: none;
-  color: #333;
+  font-family: 'Roboto';
+  font-weight: 500;
   font-size: 14px;
-  font-weight: bold;
+  line-height: 1.16;
+  text-transform: uppercase;
+  
+  color: #B7B7B7;
+}
+
+.nav-link:hover,.nav-link:focus{
+  color: var(--accent-color);
 }
 
 .theme-switch {
+  position: relative;
+
   display: flex;
   align-items: center;
   cursor: pointer;
-}
+  }
 
 .theme-icon {
-  width: 20px;
-  height: 20px;
-  fill: #333;
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; */
+
+  width: 44px;
+  height: 18px;
+  }
+
+.icon-moon{
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  z-index: 2;
+
+  width: 10px;
+  height: 10px;
 }
+
+.icon-switch{
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  z-index: 2;
+
+  width: 13px;
+  height: 13px;
+  
+}
+
+@media screen and (min-width: 768px) {
+    
+  .theme-icon {
+    width: 60px;
+    height: 24px;
+  }
+  
+  .icon-moon{
+    top: 5px;
+    /* left: 5px; */
+    
+    width: 13px;
+    height: 13px;
+  }
+  
+  .icon-switch{
+    /* top: 2px;
+    right: 5px; */
+    
+    width: 18px;
+    height: 18px;
+  }
+
+}
+
+
 
 /* Стили для мобильного меню */
 
@@ -84,33 +171,22 @@ width: 34px;
 height: 14px;
 
 font-family: 'Roboto';
-font-style: normal;
 font-weight: 500;
 font-size: 12px;
-line-height: 14px;
-
+line-height: 1.16;
 
 display: flex;
 align-items: center;
 text-align: center;
 text-transform: uppercase;
 
-
 color: #B7B7B7;
-background-color: black;
-
-border: 1px solid #000000;
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 }
 
 .menu-button:hover,
 .menu-button:focus {
-  color: #F87719;
-}
-
-.menu-button.is-open {
-  display: block;
+  color: var(--accent-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -118,6 +194,11 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     display: none;
   }
 }
+
+/* 
+.menu-button.is-open {
+  display: block;
+} */
 
 .menu-container {
   display: none;
@@ -133,7 +214,7 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     overflow: auto;
     z-index: 1;
     padding: 48px 40px;
-    background-color: #fff;
+    background-color: var(--secondary-color);
   }
 
   .menu-container.is-open {
@@ -143,6 +224,11 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 }
 
+@media screen and (max-width: 768px) {
+  .logo-title, .nav {
+    display: none;
+  }
+}
 
 /* Медиа-запросы */
 
@@ -175,11 +261,7 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 } */
 
 
-@media screen and (max-width: 768px) {
-  .logo-title, .nav {
-    display: none;
-  }
-}
+
 
 
 /* .header {
@@ -201,5 +283,5 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #747bff;
+  color: #;
 } */

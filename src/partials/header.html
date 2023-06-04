@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header header-container">
   <a href="./index.html" class="logo-link">
     <svg class="logo-svg">
       <use href="../img/sprite-header.svg#icon-header-logo"></use>
@@ -16,15 +16,16 @@
       </li>
     </ul>
   </nav>
-  <button
+  <!-- <button
     class="menu-button"
     data-menu-button
     aria-label="Переключатель мобильного меню"
     aria-expanded="false"
     aria-controls="menu-container"
   >
-    MENU
-  </button>
+    menu
+  </button> -->
+  <p class="menu-button">MENU</p>
   <div class="menu-container" id="menu-container" data-menu>
     <ul class="menu-list">
       <li class="menu-item">
@@ -39,8 +40,24 @@
     </ul>
   </div>
   <div class="theme-switch">
-    <svg class="theme-icon">
-      <use href="../img/sprite-header.svg#theme-switch-icon"></use>
-    </svg>
+    <img
+      src="../img/header-theme-bg.png"
+      alt="тема задний фон"
+      class="theme-icon"
+    />
+    <!-- <svg class="theme-icon">
+      <use href="../img/sprite-header.svg#icon-header-theme-switch"></use>
+    </svg> -->
+
+    <div>
+      <svg class="icon-moon">
+        <use
+          href="../img/sprite-header.svg#icon-header-theme-svitch-moon"
+        ></use>
+      </svg>
+      <svg class="icon-switch">
+        <use href="../img/sprite-header.svg#icon-header-theme-svitch-el"></use>
+      </svg>
+    </div>
   </div>
 </header>
