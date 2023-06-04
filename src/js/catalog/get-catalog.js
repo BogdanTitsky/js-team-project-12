@@ -28,7 +28,7 @@ export async function renderMovieList(page) {
   try {
 
     const movies = await getMovieArray(page);
-    const markup = makeMarkup(movies);
+    const markup = await makeMarkup(movies);
 
     filmList.innerHTML = markup;
     fillRatings(filmList)
