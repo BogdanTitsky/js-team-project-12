@@ -1,22 +1,37 @@
 import axios from 'axios';
+import { getGenres } from '../reuseble/tmdb-api';
 
 const containerUpcoming = document.querySelector('.js-upcoming');
-console.log(containerUpcoming);
+// console.log(containerUpcoming);
 const upcomingBtnRef = document.querySelector('#upcoming-btn');
 
 async function getUpcoming() {
   const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=183c3cacc9c38c09c14d38798ccfe9d7`;
 
-  return await axios
-    .get(url)
-    .then(({ data }) => {
-      console.log(data.results);
-      return data;
-    })
-    .catch(error => console.error(error));
+  try {
+    const { data } = await axios.get(url);
+    // console.log(data.results);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-getUpcoming().then(({ results }) => {
+async function getGenresById(arr) {
+  try {
+    const allGenres = await getGenres();
+    const movieGenres = allGenres
+      .filter(g => arr.includes(g.id))
+      .map(g => g.name)
+      .join(', ');
+    // console.log(movieGenres);
+    return movieGenres;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+getUpcoming().then(async ({ results }) => {
   const currentDate = new Date();
   // console.log(currentDate);
   const filmUpcoming = results.filter(
@@ -28,7 +43,11 @@ getUpcoming().then(({ results }) => {
     return;
   }
   const random = Math.floor(Math.random() * filmUpcoming.length);
-  const render = createUpcomingMarkup(filmUpcoming[random]);
+  const currentGenres = filmUpcoming[random].genre_ids;
+  const genresName = await getGenresById(currentGenres);
+
+  const render = createUpcomingMarkup(filmUpcoming[random], genresName);
+  // console.log(currentGenres);
 
   renderMarkup(render);
 
@@ -54,16 +73,18 @@ function toFormatDate(str) {
   return formatDate;
 }
 
-function createUpcomingMarkup({
-  backdrop_path,
-  genre_ids,
-  overview,
-  popularity,
-  release_date,
-  title,
-  vote_average,
-  vote_count,
-}) {
+function createUpcomingMarkup(
+  {
+    backdrop_path,
+    overview,
+    popularity,
+    release_date,
+    title,
+    vote_average,
+    vote_count,
+  },
+  genre
+) {
   return `
   <h2 class="upcoming-name">Upcoming this month</h2>
   <div class="upcoming-content">
@@ -97,7 +118,7 @@ function createUpcomingMarkup({
             </li>
             <li class="upcoming-list__item">
               <p class="upcoming-list__text">Genre</p>
-              <p class="upcoming-list__genre">${genre_ids}</p>
+              <p class="upcoming-list__genre">${genre}</p>
             </li>
           </ul>
         </div>
