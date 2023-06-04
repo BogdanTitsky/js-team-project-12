@@ -1,18 +1,14 @@
 import { makeMarkup } from '../reuseble/card-markup.js';
-import getTrendsMovie from './movie-tmdb-api.js';
+import { getTrendsMovie } from '../reuseble/tmdb-api.js';
+import { fillRatings } from './star-rating';
 
 const cardContainer = document.querySelector('.weelky-trends-list');
-
-// refs.weelkyTrendsList.addEventListener('load', onLoadWeeklyTrends);
-
-// function onLoadWeeklyTrends(evn) {
-
-// }
 
 async function renderTrendsList() {
   try {
     const trendsList = await getTrendsMovie();
-    cardContainer.innerHTML = makeMarkup(trendsList);
+    cardContainer.innerHTML = await makeMarkup(trendsList);
+    fillRatings(cardContainer)
   } catch (error) {
     console.error(error);
   }
