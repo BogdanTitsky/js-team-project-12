@@ -7,7 +7,9 @@
   </a>
   <nav class="nav">
     <ul class="nav-list">
-      <li class="nav-item"><a href="./index.html" class="nav-link">Home</a></li>
+      <li class="nav-item">
+        <a href="./index.html" class="nav-link link-current">Home</a>
+      </li>
       <li class="nav-item">
         <a href="./catalog-page.html" class="nav-link">Catalog</a>
       </li>
@@ -16,7 +18,7 @@
       </li>
     </ul>
   </nav>
-  <!-- <button
+  <button
     class="menu-button"
     data-menu-button
     aria-label="Переключатель мобильного меню"
@@ -24,18 +26,23 @@
     aria-controls="menu-container"
   >
     menu
-  </button> -->
-  <p class="menu-button">MENU</p>
-  <div class="menu-container" id="menu-container" data-menu>
+  </button>
+
+  <div class="menu-container is-open" id="menu-container" data-menu>
+    <a href="./index.html" class="logo-link">
+      <svg class="logo-svg">
+        <use href="../img/sprite-header.svg#icon-header-logo"></use>
+      </svg>
+    </a>
     <ul class="menu-list">
       <li class="menu-item">
-        <a href="./index.html" class="nav-link">Home</a>
+        <a href="./index.html" class="nav-link--mobile link-current">Home</a>
       </li>
       <li class="menu-item">
-        <a href="./catalog-page.html" class="nav-link">Catalog</a>
+        <a href="./catalog-page.html" class="nav-link--mobile">Catalog</a>
       </li>
       <li class="menu-item">
-        <a href="./library-page.html" class="nav-link">My Library</a>
+        <a href="./library-page.html" class="nav-link--mobile">My Library</a>
       </li>
     </ul>
   </div>
@@ -61,3 +68,5 @@
     </div>
   </div>
 </header>
+
+<script src="../js/header-menu.js"></script>
