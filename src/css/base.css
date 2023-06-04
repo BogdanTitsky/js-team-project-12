@@ -36,29 +36,17 @@ body {
   margin: 0 auto;
   padding: 0 15px;
 }
-
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 734px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .container {
-    max-width: 1246px;
-  }
-}
-
-@media screen and (min-width: 375px) {
   h1 {
     font-size: 32px;
   }
   h2 {
     font-size: 14px;
   }
-}
 
 @media screen and (min-width: 768px) {
+  .container {
+    max-width: 734px;
+  }
   h1 {
     font-size: 44px;
   }
@@ -68,6 +56,9 @@ body {
 }
 
 @media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1246px;
+  }
   h1 {
     font-size: 64px;
   }

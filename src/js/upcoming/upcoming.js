@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const containerUpcoming = document.querySelector('.js-upcoming');
 console.log(containerUpcoming);
+const upcomingBtnRef = document.querySelector('#upcoming-btn');
 
 async function getUpcoming() {
   const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=183c3cacc9c38c09c14d38798ccfe9d7`;
@@ -30,6 +31,16 @@ getUpcoming().then(({ results }) => {
   const render = createUpcomingMarkup(filmUpcoming[random]);
 
   renderMarkup(render);
+
+  console.log(filmUpcoming[random]);
+
+  const key = 'key';
+  upcomingBtnRef.addEventListener('click', e => {
+    e.preventDefault();
+    localStorage.setItem(key, JSON.stringify(filmUpcoming[random]));
+    const storage = localStorage.getItem(key);
+    console.log(storage);
+  });
 });
 
 function toFormatDate(str) {
@@ -94,9 +105,8 @@ function createUpcomingMarkup({
         <h3 class="upcoming-content__title">About</h3>
         <p class="upcoming-content__text">${overview}
         </p>
-        <button type="button" class="upcoming__btn">
-    Add to my library
-  </button>
+       
+        
   </div>`;
 }
 
