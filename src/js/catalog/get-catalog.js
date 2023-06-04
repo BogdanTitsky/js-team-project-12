@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { makeMarkup } from '../reuseble/card-markup';
-import { initPagination } from './pagination'
+import { initPagination } from './pagination';
+
 
 const filmList = document.querySelector('.weelky-trends-list');
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
@@ -21,7 +22,7 @@ async function getMovieArray(page) {
   }
 }
 
-async function renderMovieList(page) {
+export async function renderMovieList(page) {
   try {
     const movies = await getMovieArray(page);
     const markup = makeMarkup(movies);
@@ -30,7 +31,5 @@ async function renderMovieList(page) {
     console.error('Помилка при рендерингу списку фільмів:', error);
   }
 }
-
-export { renderMovieList };
 
 initPagination();

@@ -1,10 +1,10 @@
-import { Pagination } from 'tui-pagination';
+import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.min.css';
-import { renderMovieList } from './get-catalog'
+import { renderMovieList } from './get-catalog';
 
 const paginationElement = document.querySelector('#tui-pagination-container');
 
-async function initPagination() {
+export async function initPagination() {
 
   const options = {
     totalItems: 1000,
@@ -41,6 +41,4 @@ async function initPagination() {
   });
 
   await renderMovieList(1);
-}
-
-export { initPagination };
+}  
