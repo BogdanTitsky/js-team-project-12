@@ -16,7 +16,7 @@ async function getTrailer() {
   return trailer;
 }
 
-trailerBtn.addEventListener('click', handlerWatchTrailer);
+ trailerBtn.addEventListener('click', handlerWatchTrailer);
 closeSvg.addEventListener('click', hideModal());
 
 function handlerWatchTrailer() {
