@@ -22,7 +22,13 @@ async function getGenresById(arr) {
     const allGenres = await getGenres();
     const movieGenres = allGenres
       .filter(g => arr.includes(g.id))
-      .map(g => g.name)
+      .map((g, index) => {
+        if (index === 0) {
+          return g.name;
+        } else {
+          return g.name.toLowerCase();
+        }
+      })
       .join(', ');
     // console.log(movieGenres);
     return movieGenres;

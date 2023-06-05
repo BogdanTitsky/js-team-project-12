@@ -37,6 +37,7 @@
 .upcoming-list__text {
   /* margin-bottom: 12px; */
   line-height: 1.2;
+  /* max-width: 100px; */
 }
 
 .upcoming-content__title {
@@ -84,6 +85,7 @@
   color: #ffffff;
   line-height: 19px;
   margin-left: 107px;
+  max-width: 120px;
 }
 
 .upcoming__btn {
@@ -145,6 +147,10 @@
   }
   .upcoming-content {
     margin-bottom: 30px;
+  }
+
+  .upcoming-list__genre {
+    max-width: 200px;
   }
 }
 
