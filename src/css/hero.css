@@ -46,32 +46,90 @@
   margin-top: 32px;
 }
 
-.hero-PopUp {
-  max-width: 609px;
-  height: 400px;
+.active {
+  visibility: visible;
+}
 
+.hero-PopUp {
+  visibility: hidden;
   background: #111111;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
-  border-radius: 16px;
-  background-color: #f84119;
-  background: url(../img/hero-img-PopUp.png);
-  background-repeat: no-repeat;
-  background-position: bottom right;
+
+  @media screen and (min-width: 375px) {
+    max-width: 280px;
+    height: 289px;
+    border-radius: 16px;
+    background: url(../img/hero-img-PopUp-mobile.png);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 609px;
+    height: 400px;
+    border-radius: 16px;
+    background: url(../img/hero-img-PopUp-tablet.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 700px;
+    height: 400px;
+    border-radius: 20px;
+    background: url(../img/hero-img-PopUp-desktop.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+  }
 }
 
 .hero-PopUp-svg {
+  @media screen and (min-width: 375px) {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.hero-PopUp-closeSvg {
   text-align: right;
-  padding-top: 28px;
-  padding-right: 28px;
+  cursor: pointer;
+
+  @media screen and (min-width: 375px) {
+    padding-top: 20px;
+    padding-right: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-top: 28px;
+    padding-right: 28px;
+  }
 }
 
 .hero-PopUp-text {
-  margin-left: 50px;
-  margin-top: 120px;
-  max-width: 321px;
-  font-size: 24px;
-  line-height: 1.17;
-  color: white;
+  @media screen and (min-width: 375px) {
+    margin-left: 33px;
+    max-width: 214px;
+    font-size: 16px;
+    line-height: 1.19;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: 44px;
+    margin-top: 100px;
+    max-width: 321px;
+    font-size: 24px;
+    line-height: 1.17;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-left: 50px;
+    margin-top: 120px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
