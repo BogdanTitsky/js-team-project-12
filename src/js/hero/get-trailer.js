@@ -27,6 +27,6 @@ function handlerWatchTrailer() {
 //   modal.classList.add('active');
 // }
 
-function hideModal() {
-  modal.classList.add('active');
-}
+// function hideModal() {
+//   modal.classList.add('active');
+// }
