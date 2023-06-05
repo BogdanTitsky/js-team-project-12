@@ -1,41 +1,86 @@
-.wrapper {
-    display: flex;
-    justify-content: space-between;
+.weekly-trends {
+  padding-top: 40px;
 }
 
-.section-title {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: calc(19 / 16);
-    text-transform: uppercase;
-    color: #FFFFFF;
+.weelky-trends-list {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.section-title,
+.see-all-link {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: calc(19 / 16);
+  text-transform: uppercase;
+  color: var(--color-white);
 }
 
 .see-all-link {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: calc(19 / 16);
-    color: #F87719;
+  color: var(--color-orange);
+}
+
+.info-genre,
+.info-release-date {
+  color: var(--color-grey);
+}
+
+.info-title {
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--color-white);
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 768px) {
+  .weekly-trends {
+    padding-top: 52px;
+  }
+
   .section-title,
   .see-all-link  {
     font-size: 24px;
     line-height: calc(28 / 24);
   }
 
+  .film-card {
+    width: 224px;
+  }
+
+  .weelky-trends-list {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
 }
 
-@media screen and (min-width: 1200px) {
-    .section-title,
-    .see-all-link {
-        font-size: 28px;
-        line-height: calc(33 / 28);
+@media screen and (min-width: 1280px) {
+  .weekly-trends {
+    padding-top: 80px;
+  }
 
-    }
+  .wrapper {
+    margin-bottom: 28px;
+  }
+
+  .section-title,
+  .see-all-link {
+    font-size: 28px;
+    line-height: calc(33 / 28);
+  }
+
+  .film-card {
+    width: 395px;
+  }
+
+
 }
