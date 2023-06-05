@@ -5,12 +5,16 @@ async function makeMarkup(arr) {
   const genresMap = await getGenresMap();
   return arr
     .map(({ poster_path, title, genre_ids, release_date, vote_average }) => {
+      const imagePath = poster_path
+        ? `https://image.tmdb.org/t/p/w300${poster_path}`
+        : '../../img/comingSoon.jpg';
+
       return `
 <li class="film-card">
   <a href="" class="film-card-link">
-    <img class="film-card-img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title}" loading="lazy" />
+    <img class="film-card-img" src="${imagePath}" alt="${title}" loading="lazy" />
     <div class="info">
-<div>
+      <div>
         <p class="info-title">
           ${title}
         </p>
@@ -21,7 +25,7 @@ async function makeMarkup(arr) {
               ', '
             )} | <span class="info-release-date"> ${release_date}</span>
         </p>
-</div>
+      </div>
       <div class="rating">
         ${makeStarRating(vote_average)}
       </div>
