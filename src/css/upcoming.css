@@ -91,9 +91,23 @@
   border-radius: 74px;
   padding: 12px 24px;
   border: 0;
-  color: #111111;
+  color: var(--color-background);
   font-weight: 500;
   font-size: 12px;
+}
+.upcoming__btn:hover,
+.upcoming__btn:focus {
+  background: #ffffff;
+  color: #f87719;
+}
+
+.remove-btn {
+  color: #ffffff;
+  background: var(--color-background);
+  border: 1px solid transparent;
+  background: linear-gradient(var(--color-background), var(--color-background))
+      padding-box,
+    linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%) border-box;
 }
 
 .upcoming-content {
