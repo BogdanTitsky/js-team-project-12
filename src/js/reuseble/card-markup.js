@@ -20,10 +20,11 @@ async function makeMarkup(arr) {
         </p>
         <p class="info-genre">
           ${genre_ids
+            .slice(0, 2)
             .map(id => genresMap[id])
             .join(
               ', '
-            )} | <span class="info-release-date"> ${release_date}</span>
+            )} | <span class="info-release-date"> ${release_date.substr(0,4)}</span>
         </p>
       </div>
       <div class="rating">

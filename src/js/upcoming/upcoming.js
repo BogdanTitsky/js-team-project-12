@@ -22,7 +22,13 @@ async function getGenresById(arr) {
     const allGenres = await getGenres();
     const movieGenres = allGenres
       .filter(g => arr.includes(g.id))
-      .map(g => g.name)
+      .map((g, index) => {
+        if (index === 0) {
+          return g.name;
+        } else {
+          return g.name.toLowerCase();
+        }
+      })
       .join(', ');
     // console.log(movieGenres);
     return movieGenres;
@@ -51,15 +57,47 @@ getUpcoming().then(async ({ results }) => {
 
   renderMarkup(render);
 
-  console.log(filmUpcoming[random]);
+  // console.log(filmUpcoming[random]);
 
-  const key = 'key';
+  function changeBtnName() {
+    const key = 'upcomingFilms';
+    let upcomingFilms = JSON.parse(localStorage.getItem(key)) || [];
+
+    const indexLocal = upcomingFilms.findIndex(
+      film => film.id === filmUpcoming[random].id
+    );
+
+    if (indexLocal === -1) {
+      upcomingBtnRef.classList.remove('remove-btn');
+      upcomingBtnRef.textContent = 'Add to my library';
+    } else {
+      upcomingBtnRef.classList.add('remove-btn');
+      upcomingBtnRef.textContent = 'Remove from my library';
+    }
+  }
+
+  const key = 'upcomingFilms';
   upcomingBtnRef.addEventListener('click', e => {
     e.preventDefault();
-    localStorage.setItem(key, JSON.stringify(filmUpcoming[random]));
-    const storage = localStorage.getItem(key);
-    console.log(storage);
+    let upcomingFilms = JSON.parse(localStorage.getItem(key)) || [];
+
+    const indexLocal = upcomingFilms.findIndex(
+      film => film.id === filmUpcoming[random].id
+    );
+    if (indexLocal === -1) {
+      upcomingFilms.push(filmUpcoming[random]);
+      // console.log('Добавляет в localStorage');
+    } else {
+      upcomingFilms.splice(indexLocal, 1);
+      // console.log('Удаляет из localStorage');
+    }
+
+    localStorage.setItem(key, JSON.stringify(upcomingFilms));
+
+    changeBtnName();
   });
+
+  changeBtnName();
 });
 
 function toFormatDate(str) {

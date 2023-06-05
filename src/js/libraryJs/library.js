@@ -2,33 +2,33 @@
 const libraryCard = document.querySelector('.library-card');
 const librList = document.querySelector('.libr-list');
 const librCatch = document.querySelector('.libr-catch');
-const key = 'key';
+const key = 'upcomingFilms';
 
-console.log(15);
-if (localStorage.length) {
-    const storageLoc = localStorage.getItem(key);
 
-    const parsed = JSON.parse(storageLoc);
-    console.log(parsed)
-    
-    
-    const render = createUpcomingMarkup(parsed);
+if (localStorage.length ) {
+  const storageLoc = localStorage.getItem(key);
 
-    renderMarkup(render);
-librCatch.style.display = "none";
+  const parsed = JSON.parse(storageLoc);
+  console.log(parsed);
+createUpcomingMarkup(parsed);
 
+  librCatch.style.display = 'none';
 }
-function createUpcomingMarkup({
-    backdrop_path,
+
+
+
+function createUpcomingMarkup(parsed) {
+  const markup = parsed.map(({
+  backdrop_path,
   poster_path,
   title,
   vote_average,
   release_date,
-}) {
-  return `
+}) =>
+   `
   <li class="film-card">
   <a href="" class="film-card-link">
-    <img class="film-card-img" src="https://image.tmdb.org/t/p/w300${backdrop_path}" alt="${title}" loading="lazy" />
+    <img class="film-card-img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title}" loading="lazy" />
     <div class="info">
       <p class="info-title">
         ${title}
@@ -41,11 +41,8 @@ function createUpcomingMarkup({
       </p>
     </div>
   </a>
-</li>`;
-}
-
-function renderMarkup(markup) {
+</li>`
+  )
   librList.innerHTML = markup;
 }
-
 
