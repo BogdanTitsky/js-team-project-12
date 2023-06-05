@@ -12,18 +12,18 @@ async function fetchRandomFilm(){
     }
 }
 
- function loadHeroMarkup(data){
-    const heroMarkup = data.map(({title, backdrop_path, vote_average, overview}) =>{
-        
-           return `
-           <h1 class="hero-title">${title}</h1>
+ function loadHeroMarkup(movieArray){
+    const movie = movieArray[Math.floor(Math.random()*movieArray.length)];
+    const heroMarkup =      
+            `
+           <h1 class="hero-title">${movie.title}</h1>
            <p>Тут повинні бути  зірочки замість цифри: <br> 
-           ${vote_average}</p>
-           <p class="hero-text">${overview}
+           ${movie.vote_average}</p>
+           <p class="hero-text">${movie.overview}
            </p>
            <button type="button" class="get-started-button">Get Started</button>
            `;
-       }).join(``);
+    
        contentBlock.innerHTML =``;
        contentBlock.insertAdjacentHTML(`beforeend`, heroMarkup);
    } 
@@ -31,6 +31,7 @@ async function fetchRandomFilm(){
 
 fetchRandomFilm()
     .then((movieArray) => {
+        console.log(movieArray[0]);
       loadHeroMarkup(movieArray);
     })
     .catch((error) => {
