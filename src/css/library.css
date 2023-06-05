@@ -16,7 +16,11 @@ text-align: center;
 }
 .libr-catch {
     gap: 20px;
+    display: block;
     
+}
+.display {
+    display: none;
 }
 .btn-libr {
         display: flex;
