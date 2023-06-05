@@ -1,3 +1,4 @@
+
 .form-search {
   display: flex;
   gap: 16px;
@@ -41,9 +42,9 @@
 .text-error {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 32px;
-  line-height: 1.1;
-  width: 684px;
+  font-size: 20px;
+  line-height: 1.4;
+  width: 280px;
   text-align: center;
   color: #ffffff;
   white-space: pre-line;
@@ -54,6 +55,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hidden-text {
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -69,6 +74,12 @@
 
   .btn-search {
     padding: 13px;
+  }
+
+  .text-error {
+    width: 513px;
+    font-size: 24px;
+    line-height: 1.3;
   }
 }
 
@@ -96,5 +107,11 @@
   .icon-search {
     width: 20px;
     height: 20px;
+  }
+
+  .text-error {
+    width: 684px;
+    font-size: 32px;
+    line-height: 1.1;
   }
 }
