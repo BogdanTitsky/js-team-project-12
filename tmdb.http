@@ -1,0 +1,12 @@
+### Get Trending
+GET https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=183c3cacc9c38c09c14d38798ccfe9d7
+accept: application/json
+
+### Genres
+GET https://api.themoviedb.org/3/genre/movie/list?language=en&api_key=183c3cacc9c38c09c14d38798ccfe9d7
+accept: application/json
+
+###
+
+
+
