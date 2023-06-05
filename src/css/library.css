@@ -85,3 +85,21 @@ background: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91
 box-shadow: 1px 1px 14px rgba(1, 1, 1, 0.25);
 transform: scale(105%);
 }
+
+
+/* ======================================= */
+.libr-list {
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+    .libr-list{
+
+    
+        display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 16px;
+    }
+}
