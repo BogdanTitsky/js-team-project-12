@@ -1,4 +1,4 @@
-import{a as c}from"./footer-eca60421.js";function v(e){return`
+import{a as c}from"./footer-28691873.js";function v(e){return`
     <div class="rating">
       <div class="rating-body">
         <div class="rating-active"></div>
