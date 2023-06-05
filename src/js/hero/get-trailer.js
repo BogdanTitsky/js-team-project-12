@@ -1,12 +1,12 @@
 import axios from 'axios';
 
+const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
+
 const closeSvg = document.querySelector('.hero-PopUp-closeSvg');
 const modal = document.querySelector('.hero-PopUp');
 const markupTrailer = document.querySelector('.trailer-modal');
 
 closeSvg.addEventListener('click', hideModal);
-
-const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
 openTrailerModal();
 

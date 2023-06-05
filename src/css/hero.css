@@ -34,7 +34,7 @@
   width: 166px;
   color: #f8f8f8;
 }
-.get-started-button {
+.button {
   padding: 12px 24px;
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   border-radius: 74px;
@@ -47,11 +47,16 @@
 }
 
 .active {
-  visibility: visible;
+  top: 50%;
 }
 
 .hero-PopUp {
-  visibility: hidden;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  top: -300%;
+  transform: translate(-50%, -50%);
+  transition: 0.6s;
   background: #111111;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
 
