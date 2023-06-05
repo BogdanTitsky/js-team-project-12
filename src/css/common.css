@@ -8,9 +8,9 @@
 }
 
 .rating-body::before {
-    content: "★★★★★";
+    content: "☆☆☆☆☆";
     display: block;
-    /*color: transparent;*/
+    color: var(--color-orange);
 }
 
 .rating-active {
