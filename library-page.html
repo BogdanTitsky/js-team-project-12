@@ -12,9 +12,9 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/js-team-project-12/assets/library-page-cbb23172.js"></script>
-    <link rel="modulepreload" crossorigin href="/js-team-project-12/assets/footer-143e7997.js">
-    <link rel="stylesheet" href="/js-team-project-12/assets/footer-850fac2b.css">
+    <script type="module" crossorigin src="/js-team-project-12/assets/library-page-7e20045d.js"></script>
+    <link rel="modulepreload" crossorigin href="/js-team-project-12/assets/footer-b68d9b12.js">
+    <link rel="stylesheet" href="/js-team-project-12/assets/footer-30471e2a.css">
   </head>
   <body>
     <header class="header header-container">
@@ -128,16 +128,221 @@
 
     <li>
       Developed with<svg width="14" height="13" class="footer-list-icon">
-        <use href="/js-team-project-12/assets/symbol-defs-cc59eb51.svg#icon-favorite"></use>
+        <use href="/js-team-project-12/assets/symbol-defs-043097d7.svg#icon-favorite"></use>
       </svg>
-      by <button type="button" class="footer-btn">GoIT Students</button>
+      by
+      <button type="button" id="open-modal-btn" class="footer-btn">
+        GoIT Students
+      </button>
     </li>
   </ul>
 </footer>
 <!--------------- project participants ------------------------------------>
-<section class="participants">
-  <div></div>
-</section>
+<div class="teem-modal" id="footer-modal">
+  <button type="button" id="close-modal-btn" class="team-modal__btn--close">
+    <svg width="32" height="32" class="teem-modal-svg">
+      <use href="/js-team-project-12/assets/symbol-defs-043097d7.svg#icon-close-black"></use>
+    </svg>
+  </button>
+  <div class="modal__box">
+    <ul class="team-modal-list list">
+      <li class="teem-modal__item">
+        <img
+          src=""
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p>
+            <span class="team-modal__span--orange">Bogdan Titsky</span>Team
+            Lead, Developer
+          </p>
+        </div>
+      </li>
+
+      <li class="teem-modal__item">
+        <img
+          src="/src/img/students/Людмила Курочкина.jpg"
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p>
+            <span class="team-modal__span--orange">Ludmila Kurochkina</span
+            >Scrum Master, Developer
+          </p>
+        </div>
+      </li>
+
+      <li class="teem-modal__item">
+        <img
+          src="/src/img/students/Diana Smilian.jpg "
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p>
+            <span class="team-modal__span--orange">Diana Smilian</span>Developer
+          </p>
+        </div>
+      </li>
+
+      <li class="teem-modal__item">
+        <img
+          src="/src/img/students/Andriy.jpg"
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p><span class="team-modal__span--orange">Andriy</span>Developer</p>
+        </div>
+      </li>
+
+      <li class="teem-modal__item">
+        <img
+          src="/src/img/students/Alla Pogrebnyak.jpg "
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p>
+            <span class="team-modal__span--orange">Alla Pogrebnyak</span
+            >Developer
+          </p>
+        </div>
+      </li>
+
+      <li class="teem-modal__item">
+        <img
+          src="/src/img/students/Tigran Alexanian.jpg "
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p>
+            <span class="team-modal__span--orange">Tigran Alexanian</span
+            >Developer
+          </p>
+        </div>
+      </li>
+
+      <li class="teem-modal__item">
+        <img
+          src="/src/img/students/Дарья Аввакумова.jpg"
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p>
+            <span class="team-modal__span--orange">Daria Avvakumova</span
+            >Developer
+          </p>
+        </div>
+      </li>
+
+      <li class="teem-modal__item">
+        <img
+          src="/src/img/students/Юра Платонов.jpg "
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p>
+            <span class="team-modal__span--orange">Yura Platonov</span>Developer
+          </p>
+        </div>
+      </li>
+
+      <li class="teem-modal__item">
+        <img
+          src="/src/img/students/Hakimov Marat.jpg "
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p>
+            <span class="team-modal__span--orange">Marat Hakimov</span>Developer
+          </p>
+        </div>
+      </li>
+
+      <li class="teem-modal__item">
+        <img
+          src="/src/img/students/Анна Федорук.jpg "
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p>
+            <span class="team-modal__span--orange">Anna Fedoruk</span>Developer
+          </p>
+        </div>
+      </li>
+
+      <li class="teem-modal__item">
+        <img
+          src="/src/img/students/Антон.jpg "
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p><span class="team-modal__span--orange">Anton</span>Developer</p>
+        </div>
+      </li>
+
+      <li class="teem-modal__item">
+        <img
+          src="/src/img/students/Nikita.jpg "
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p><span class="team-modal__span--orange">Nikita</span>Developer</p>
+        </div>
+      </li>
+
+      <li class="teem-modal__item">
+        <img
+          src=" "
+          alt="Photo "
+          width="120"
+          height="120"
+          class="teem-modal__img"
+        />
+        <div class="team-modal__text-wrap">
+          <p>
+            <span class="team-modal__span--orange">Oleksandr Sorokin</span
+            >Developer
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 
     
   </body>
