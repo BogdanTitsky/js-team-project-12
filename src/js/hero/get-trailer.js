@@ -32,11 +32,13 @@ async function openTrailerModal() {
   });
 }
 
+trailerBtn.addEventListener('click', handlerWatchTrailer);
+closeSvg.addEventListener('click', hideModal());
 async function getTrailer(id) {
   try {
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`
-    );
+    )
 
     console.log(response.data.results[0]);
 
