@@ -10,6 +10,7 @@
 .rating-body::before {
     content: "★★★★★";
     display: block;
+    /*color: transparent;*/
 }
 
 .rating-active {
@@ -30,7 +31,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    color: #F87719;
+    color: var(--color-orange);
 }
 
 .rating-value {
