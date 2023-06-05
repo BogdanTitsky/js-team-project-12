@@ -4,8 +4,8 @@
   font-size: 14px;
   line-height: 1.14;
   padding: 29px 0px;
-  background-color: #f7f7f7;
-  color: #545454;
+  background-color: var(--color-linear);
+  color: var(--color-grey-white-theme);
   @media screen and (min-width: 768px) {
     padding: 30px 0px;
     font-size: 16px;
@@ -18,6 +18,7 @@
 .footer-list-icon {
   padding: 0;
   margin: 0 10px 0 10px;
+  animation: heartbeat 1.2s infinite;
 }
 .footer-list {
   display: block;
@@ -28,12 +29,26 @@
     align-items: center;
   }
 }
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.25) translateX(5%) translateY(5%);
+  }
+  25% {
+    transform: scale(1.15) translateX(2%) translateY(2%);
+  }
+  45% {
+    transform: scale(1.5) translateX(8%) translateY(8%);
+  }
+}
 .footer-btn {
   background-color: transparent;
   border-color: transparent;
   font-family: 'Roboto';
   font-weight: 400;
-  color: #545454;
+  color: var(--color-grey-white-theme);
   cursor: pointer;
   text-decoration: underline;
   @media screen and (min-width: 768px) {
@@ -44,5 +59,5 @@
 }
 .footer-btn:hover,
 :focus {
-  color: #fa9c4e;
+  color: var(--color-linear);
 }
