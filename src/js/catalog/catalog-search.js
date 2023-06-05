@@ -34,22 +34,16 @@ clearMarkup();
   const getMovie = await getSearchMovie(value);
 
 if (getMovie.length === 0) {
-   textError(`<p class='text-error'>OOPS...
-    We are very sorry!
-    We don't have any results matching your search.</p>`)
+   refs.textBox.classList.remove('hidden-text')
     return
    }
-   
+   refs.textBox.classList.add('hidden-text')
   const markupMovie = await makeMarkup(getMovie);
   movieList(markupMovie);
 }
 
 function movieList(markup) {
    refs.filmList.innerHTML = markup;
-}
-
-function textError(markup) {
-   refs.textBox.innerHTML = markup;
 }
 
 function clearMarkup() {
