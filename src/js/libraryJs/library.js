@@ -1,5 +1,5 @@
 
-const libraryCard = document.querySelector('.library-card');
+
 const librList = document.querySelector('.libr-list');
 const librCatch = document.querySelector('.libr-catch');
 const key = 'upcomingFilms';
