@@ -78,7 +78,7 @@
     background-position: bottom right;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     max-width: 700px;
     height: 400px;
     border-radius: 20px;
@@ -137,7 +137,7 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1199px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .hero {
     background-image: linear-gradient(
         86.77deg,
@@ -164,7 +164,7 @@
     width: 357px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .hero {
     background-image: linear-gradient(
         86.77deg,
