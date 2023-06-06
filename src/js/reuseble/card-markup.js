@@ -13,22 +13,27 @@ async function makeMarkup(arr) {
 <li class="film-card">
   <a href="" class="film-card-link">
     <img class="film-card-img" src="${imagePath}" alt="${title}" loading="lazy" />
+    <div class="darkening"></div>
     <div class="info">
-      <div>
         <p class="info-title">
           ${title}
         </p>
+      <div class="genre-rating">
         <p class="info-genre">
           ${genre_ids
             .slice(0, 2)
             .map(id => genresMap[id])
             .join(
               ', '
-            )} | <span class="info-release-date"> ${release_date.substr(0,4)}</span>
+            )} | <span class="info-release-date"> ${release_date.substr(
+        0,
+        4
+      )}</span>
         </p>
-      </div>
-      <div class="rating">
-        ${makeStarRating(vote_average)}
+
+        <div class="rating">
+          ${makeStarRating(vote_average)}
+        </div>
       </div>
     </div>
   </a>
