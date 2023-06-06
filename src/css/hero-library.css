@@ -3,20 +3,20 @@
     padding-top: 40px;
     padding-bottom: 144px;
 
-    background: linear-gradient(
+    /* background: linear-gradient(
         79.49deg,
         #111111 34.1%,
         rgba(17, 17, 17, 0) 64.67%
       ),
       url(../img/hero-cinema-mobile.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
   }
 
   @media screen and (min-width: 768px) {
     padding-top: 62px;
     padding-bottom: 118px;
-
+/* 
     background: linear-gradient(
         79.49deg,
         #111111 34.1%,
@@ -24,20 +24,20 @@
       ),
       url(../img/hero-cinema-tablet.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
   }
 
   @media screen and (min-width: 1200px) {
     padding-top: 169px;
     padding-bottom: 249px;
-    background: linear-gradient(
+    /* background: linear-gradient(
         79.49deg,
         #111111 34.1%,
         rgba(17, 17, 17, 0) 64.67%
       ),
       url(../img/hero-cinema-desktop.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
   }
 }
 

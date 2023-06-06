@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { makeMarkup } from '../reuseble/card-markup';
 import Notiflix from 'notiflix';
+import throttle from 'lodash.throttle';
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
 async function getSearchMovie(query, page=1) {
@@ -18,7 +19,7 @@ filmList: document.querySelector('.weelky-trends-list'),
 textBox: document.querySelector('.catalog-text-box')
 }
 
-refs.form.addEventListener('submit', onSubmitForm)
+refs.form.addEventListener('submit', throttle(onSubmitForm, 2000))
 
 async function onSubmitForm(e) {
    e.preventDefault();
@@ -34,22 +35,16 @@ clearMarkup();
   const getMovie = await getSearchMovie(value);
 
 if (getMovie.length === 0) {
-   textError(`<p class='text-error'>OOPS...
-    We are very sorry!
-    We don't have any results matching your search.</p>`)
+   refs.textBox.classList.remove('hidden-text')
     return
    }
-   
+   refs.textBox.classList.add('hidden-text')
   const markupMovie = await makeMarkup(getMovie);
   movieList(markupMovie);
 }
 
 function movieList(markup) {
    refs.filmList.innerHTML = markup;
-}
-
-function textError(markup) {
-   refs.textBox.innerHTML = markup;
 }
 
 function clearMarkup() {

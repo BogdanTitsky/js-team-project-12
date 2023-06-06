@@ -75,3 +75,4 @@ function showModal() {
 function hideModal() {
   modal.classList.remove('active');
 }
+
