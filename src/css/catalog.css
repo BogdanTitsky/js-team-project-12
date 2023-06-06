@@ -1,10 +1,12 @@
+.catalog-container {
+  padding-top: 40px;
+}
 
 .form-search {
   display: flex;
   gap: 16px;
   justify-content: center;
-  padding-top: 40px;
-  padding-bottom: 48px;
+  margin-bottom: 16px;
 }
 
 .form-search input {
@@ -76,7 +78,7 @@
 
 
 @media screen and (min-width: 768px) {
-  .form-search {
+  .catalog-container {
     padding-top: 60px;
   }
 
