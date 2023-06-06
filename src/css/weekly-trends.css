@@ -4,10 +4,6 @@
   margin-bottom: 24px;
 }
 
-.see-all-link {
-  color: var(--color-orange);
-}
-
 .section-title-weekly-trends,
 .see-all-link {
   font-family: inherit;
@@ -17,6 +13,15 @@
   line-height: calc(19 / 16);
   text-transform: uppercase;
   color: var(--color-white);
+}
+
+.see-all-link {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: calc(19 / 16);
+  color: var(--color-orange);
 }
 
 .weelky-trends-list {
@@ -30,6 +35,24 @@
 
   margin-bottom: 16px;
   font-size: 12px;
+  line-height: 16px;
+}
+
+.darkening {
+  position: absolute;
+  background: var(--color-background);
+  background: var(--color-linear-black);
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+}
+
+.genre-rating {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
 }
 
 .rating {
@@ -46,9 +69,8 @@
   left: 0;
   padding: 0 12px 12px 12px;
 
-  display: flex;
-
   font-weight: 500;
+  width: 100%;
 }
 
 .info-genre,
@@ -56,13 +78,13 @@
   color: var(--color-grey);
 }
 
-
-
 .info-title {
   font-size: inherit;
   font-weight: inherit;
   color: var(--color-white);
   text-transform: uppercase;
+  width: 90%;
+  padding-bottom: 4px;
 }
 
 @media screen and (min-width: 768px) {
@@ -70,7 +92,7 @@
     padding-top: 52px;
   }
 
-  .section-title,
+  .section-title-weekly-trends,
   .see-all-link {
     font-size: 24px;
     line-height: calc(28 / 24);
@@ -85,16 +107,16 @@
   }
 
   .film-card {
-    width: calc(33.33% - 12px);
+    width: calc((100% - 32px) / 3);
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .weekly-trends {
     padding-top: 80px;
   }
 
-  .section-title,
+  .section-title-weekly-trends,
   .see-all-link {
     font-size: 28px;
     line-height: calc(33 / 28);
@@ -106,9 +128,29 @@
 
   .film-card {
     font-size: 20px;
+    width: calc((100% - 32px) / 3);
+  }
+
+  .info {
+    padding: 20px;
+  }
+
+  .info-title {
+    line-height: 24px;
+    padding-bottom: 12px;
+  }
+
+  .info-genre {
+    line-height: 24px;
   }
 
   .rating {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hide-mobile {
+    display: none;
   }
 }

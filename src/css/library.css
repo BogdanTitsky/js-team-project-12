@@ -16,7 +16,11 @@ text-align: center;
 }
 .libr-catch {
     gap: 20px;
+    display: block;
     
+}
+.display {
+    display: none;
 }
 .btn-libr {
         display: flex;
@@ -102,4 +106,19 @@ transform: scale(105%);
     width: 100%;
     gap: 16px;
     }
+}
+
+.loadmorebtn {
+    width: 134px;
+    height: 52px;
+    border-radius: 74px;
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+
 }

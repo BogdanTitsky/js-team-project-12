@@ -2,8 +2,12 @@ import axios from 'axios';
 import { makeMarkup } from '../reuseble/card-markup';
 import Notiflix from 'notiflix';
 
+
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.min.css';
+
+
+import throttle from 'lodash.throttle';
 
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
@@ -28,10 +32,14 @@ textBox: document.querySelector('.catalog-text-box'),
 paginationContainer: document.querySelector('#tui-pagination-container')
 }
 
+
 let currentPage = 1;
 let pagination = null;
 
-refs.form.addEventListener('submit', onSubmitForm)
+
+
+refs.form.addEventListener('submit', throttle(onSubmitForm, 2000))
+
 
 async function onSubmitForm(e) {
    e.preventDefault();
@@ -48,12 +56,10 @@ const getMovie = await getSearchMovie(value);
 await renderMovieList(value, currentPage);
 
 if (getMovie.length === 0) {
-   textError(`<p class='text-error'>OOPS...
-    We are very sorry!
-    We don't have any results matching your search.</p>`)
+   refs.textBox.classList.remove('hidden-text')
     return
    }
-   
+   refs.textBox.classList.add('hidden-text')
   const markupMovie = await makeMarkup(getMovie);
   movieList(markupMovie);
 }
@@ -76,10 +82,6 @@ async function renderMovieList(page) {
 
 function movieList(markup) {
    refs.filmList.innerHTML = markup;
-}
-
-function textError(markup) {
-   refs.textBox.innerHTML = markup;
 }
 
 function clearMarkup() {
