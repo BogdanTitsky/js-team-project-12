@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { fillRatings } from '../reuseble/star-rating';
+import openTrailerModal from '../hero/get-trailer';
 
 const keyApi = `183c3cacc9c38c09c14d38798ccfe9d7`;
 const contentBlock = document.querySelector('.hero-content');
@@ -19,17 +20,20 @@ async function fetchRandomFilm() {
 function loadHeroMarkup(movieArray) {
   const movie = movieArray[Math.floor(Math.random() * movieArray.length)];
   const heroMarkup = `
+  <div >
            <h1 class="hero-title">${movie.title}</h1>
            <p>Тут повинні бути  зірочки замість цифри: <br> 
            ${movie.vote_average}</p>
            <p class="hero-text">${movie.overview}
            </p>
            <button type="button" class="button watch-trailer" data-id=${movie.id}>Watch trailer</button>
-           <button type="button" class="" data-id=${movie.id}>More details</button>
+           <button type="button" class="">More details</button>
+           </div>
            `;
 
   contentBlock.innerHTML = ``;
   contentBlock.insertAdjacentHTML(`beforeend`, heroMarkup);
+  openTrailerModal();
 }
 // functions workflow
 
