@@ -34,12 +34,12 @@ async function createUpcomingMarkup(parsed) {
   <li class="film-card">
   <a href="" class="film-card-link">
     <img class="film-card-img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title}" loading="lazy" />
-    <div class="info">
-    <div>
-      <p class="info-title">
-        ${title}
-      </p>
-      <p class="info-genre">
+     <div class="info">
+        <p class="info-title">
+          ${title}
+        </p>
+      <div class="genre-rating">
+        <p class="info-genre">
           ${genre_ids
             .slice(0, 2)
             .map(id => genresMap[id])
@@ -50,11 +50,11 @@ async function createUpcomingMarkup(parsed) {
             4
           )}</span>
         </p>
+
+        <div class="rating">
+          ${makeStarRating(vote_average)}
         </div>
-      <div class="rating">
-        ${makeStarRating(vote_average)}
       </div>
-     
     </div>
   </a>
 </li>`
