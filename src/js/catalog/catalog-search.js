@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { makeMarkup } from '../reuseble/card-markup';
 import Notiflix from 'notiflix';
+import throttle from 'lodash.throttle';
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
 async function getSearchMovie(query, page=1) {
@@ -18,7 +19,7 @@ filmList: document.querySelector('.weelky-trends-list'),
 textBox: document.querySelector('.catalog-text-box')
 }
 
-refs.form.addEventListener('submit', onSubmitForm)
+refs.form.addEventListener('submit', throttle(onSubmitForm, 2000))
 
 async function onSubmitForm(e) {
    e.preventDefault();
