@@ -1,5 +1,4 @@
 import axios from 'axios';
-//import * as basicLightbox from 'basiclightbox';
 
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
@@ -47,13 +46,6 @@ async function getTrailer(id) {
   }
 }
 
-// function renderModal(url) {
-//   const modal = basicLightbox.create(`
-//      <iframe src=${url} width="560" height="315" frameborder="0"></iframe> `);
-
-//   modal.show();
-// }
-
 function successModalTemplate(videoUrl) {
   return `<div class='watch-modal'>
 <div class='watch-modal__content'>
@@ -75,4 +67,3 @@ function showModal() {
 function hideModal() {
   modal.classList.remove('active');
 }
-
