@@ -8,6 +8,7 @@ import 'tui-pagination/dist/tui-pagination.min.css';
 
 
 import throttle from 'lodash.throttle';
+import { fillRatings } from '../reuseble/star-rating';
 
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
@@ -46,7 +47,7 @@ async function onSubmitForm(e) {
   const form = e.currentTarget;
   const value = form.elements.search.value.trim();
 
-  
+
   if (value === "") {
    Notiflix.Notify.failure('No value!');
 return
@@ -62,12 +63,13 @@ if (getMovie.length === 0) {
    refs.textBox.classList.add('hidden-text')
   const markupMovie = await makeMarkup(getMovie);
   movieList(markupMovie);
+  fillRatings(refs.filmList);
 }
 async function renderMovieList(page) {
   try {
     const movies = await getSearchMovie(page);
     const markup = await makeMarkup(movies);
-    
+
     movieList(markup);
     if (pagination !== null) {
       pagination.off();
@@ -87,7 +89,7 @@ function movieList(markup) {
 function clearMarkup() {
    refs.filmList.innerHTML = '';
 }
- 
+
 function initPagination(totalPages) {
   const options = {
     totalItems: totalPages,

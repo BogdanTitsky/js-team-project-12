@@ -11,6 +11,11 @@ async function makeMarkup(arr, mobileCount = 100) {
         : commingSoon;
 
       const hideMobile = i >= mobileCount ? 'hide-mobile' : '';
+      const genresString = genre_ids
+        .slice(0, 2)
+        .map(id => genresMap[id])
+        .join(', ');
+      const year = release_date.substr(0, 4)
 
       return `
 <li class="film-card ${hideMobile}">
@@ -23,15 +28,8 @@ async function makeMarkup(arr, mobileCount = 100) {
         </p>
       <div class="genre-rating">
         <p class="info-genre">
-          ${genre_ids
-            .slice(0, 2)
-            .map(id => genresMap[id])
-            .join(
-              ', '
-            )} | <span class="info-release-date"> ${release_date.substr(
-        0,
-        4
-      )}</span>
+          ${genresString !== "" ? genresString : "Unknown"} |
+          <span class="info-release-date"> ${year !== "" ? year : "Unknown"}</span>
         </p>
 
         <div class="rating">
