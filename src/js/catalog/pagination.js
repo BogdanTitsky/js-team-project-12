@@ -34,7 +34,6 @@ export async function initPagination() {
   };
 
   const pagination = new Pagination(paginationElement, options);
-
   pagination.on('afterMove', async event => {
     const currentPage = event.page;
     await renderMovieList(currentPage);
