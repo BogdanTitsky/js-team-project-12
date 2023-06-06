@@ -9,7 +9,7 @@ async function makeMarkup(arr, mobileCount = 100) {
       const imagePath = poster_path
         ? `https://image.tmdb.org/t/p/w300${poster_path}`
         : commingSoon;
-      console.log(i);
+
       const hideMobile = i >= mobileCount ? 'hide-mobile' : '';
 
       return `
