@@ -1,5 +1,5 @@
 import axios from 'axios';
-//import * as basicLightbox from 'basiclightbox';
+import SimpleLightbox from 'simplelightbox';
 
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
@@ -75,4 +75,3 @@ function showModal() {
 function hideModal() {
   modal.classList.remove('active');
 }
-
