@@ -1,16 +1,18 @@
 import { makeStarRating } from './star-rating';
 import getGenresMap from './genres';
 
-async function makeMarkup(arr) {
+async function makeMarkup(arr, mobileCount = 100) {
   const genresMap = await getGenresMap();
   return arr
-    .map(({ poster_path, title, genre_ids, release_date, vote_average }) => {
+    .map(({ poster_path, title, genre_ids, release_date, vote_average }, i) => {
       const imagePath = poster_path
         ? `https://image.tmdb.org/t/p/w300${poster_path}`
         : '../../img/comingSoon.jpg';
+      console.log(i)
+      const hideMobile = (i >= mobileCount) ? "hide-mobile" : "";
 
       return `
-<li class="film-card">
+<li class="film-card ${hideMobile}">
   <a href="" class="film-card-link">
     <img class="film-card-img" src="${imagePath}" alt="${title}" loading="lazy" />
     <div class="darkening"></div>

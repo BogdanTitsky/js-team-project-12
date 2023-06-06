@@ -4,10 +4,6 @@
   margin-bottom: 24px;
 }
 
-.see-all-link {
-  color: var(--color-orange);
-}
-
 .section-title-weekly-trends,
 .see-all-link {
   font-family: inherit;
@@ -17,6 +13,15 @@
   line-height: calc(19 / 16);
   text-transform: uppercase;
   color: var(--color-white);
+}
+
+.see-all-link {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: calc(19 / 16);
+  color: var(--color-orange);
 }
 
 .weelky-trends-list {
@@ -87,7 +92,7 @@
     padding-top: 52px;
   }
 
-  .section-title,
+  .section-title-weekly-trends,
   .see-all-link {
     font-size: 24px;
     line-height: calc(28 / 24);
@@ -111,7 +116,7 @@
     padding-top: 80px;
   }
 
-  .section-title,
+  .section-title-weekly-trends,
   .see-all-link {
     font-size: 28px;
     line-height: calc(33 / 28);
@@ -141,5 +146,11 @@
 
   .rating {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hide-mobile {
+    display: none;
   }
 }

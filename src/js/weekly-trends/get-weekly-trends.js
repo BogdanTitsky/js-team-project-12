@@ -7,7 +7,8 @@ const cardContainer = document.querySelector('.weelky-trends-list');
 async function renderTrendsList() {
   try {
     const trendsList = await getTrendsMovie();
-    cardContainer.innerHTML = await makeMarkup(trendsList);
+
+    cardContainer.innerHTML = await makeMarkup(trendsList, 1);
     fillRatings(cardContainer)
   } catch (error) {
     console.error(error);
@@ -15,3 +16,9 @@ async function renderTrendsList() {
 }
 
 renderTrendsList();
+
+
+
+
+
+
