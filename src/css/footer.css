@@ -109,11 +109,8 @@
     line-height: 1.18;
   }
 }
-.footer-btn:hover {
-  color: var(--color-orange);
-  background-color: var(--color-linear);
-}
-.footer-btn:focus {
+.footer-btn:hover,
+:focus {
   color: var(--color-orange);
   background-color: var(--color-linear);
 }
@@ -175,10 +172,8 @@
   cursor: pointer;
   margin-left: auto;
 }
-.team-modal__btn--close:hover {
-  background-color: var(--color-orange);
-}
-.team-modal__btn--close:focus {
+.team-modal__btn--close:hover,
+:focus {
   background-color: var(--color-orange);
 }
 
@@ -317,6 +312,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   width: 280px;
   height: 540px;
   padding: 15px 15px;
@@ -326,6 +322,7 @@
   text-align: center;
   visibility: hidden;
   opacity: 0;
+  transition: opacity.4s, visibility.4s;
 
   @media screen and (min-width: 768px) {
     padding: 15px 30px 15px 30px;
@@ -353,7 +350,13 @@
   z-index: 1;
   margin: 30px 15px;
 }
-
+.teem-modal.open {
+  visibility: visible;
+  opacity: 1;
+}
+.teem-modal.open .modal__box {
+  transform: scale(1);
+}
 .team-modal__btn--close {
   width: 30px;
   height: 30px;
@@ -366,7 +369,9 @@
   cursor: pointer;
   margin-left: auto;
 }
-.team-modal__btn--close:hover,
-:focus {
+.team-modal__btn--close:hover {
+  background-color: var(--color-orange);
+}
+.team-modal__btn--close:focus {
   background-color: var(--color-orange);
 }
