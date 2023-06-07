@@ -109,8 +109,11 @@
     line-height: 1.18;
   }
 }
-.footer-btn:hover,
-:focus {
+.footer-btn:hover {
+  color: var(--color-orange);
+  background-color: var(--color-linear);
+}
+.footer-btn:focus {
   color: var(--color-orange);
   background-color: var(--color-linear);
 }
@@ -172,8 +175,10 @@
   cursor: pointer;
   margin-left: auto;
 }
-.team-modal__btn--close:hover,
-:focus {
+.team-modal__btn--close:hover {
+  background-color: var(--color-orange);
+}
+.team-modal__btn--close:focus {
   background-color: var(--color-orange);
 }
 
