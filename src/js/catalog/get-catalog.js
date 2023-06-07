@@ -4,6 +4,7 @@ import { makeMarkup } from '../reuseble/markups.js';
 import { initPagination } from './pagination';
 
 import { fillRatings } from '../reuseble/star-rating';
+import { assignModalListeners } from '../modal/modal.js';
 
 const filmList = document.querySelector('.weelky-trends-list');
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
@@ -31,7 +32,8 @@ export async function renderMovieList(page) {
     const markup = await makeMarkup(movies);
 
     filmList.innerHTML = markup;
-    fillRatings(filmList)
+    fillRatings(filmList);
+    assignModalListeners();
   } catch (error) {
     console.error('Помилка при рендерингу списку фільмів:', error);
   }
