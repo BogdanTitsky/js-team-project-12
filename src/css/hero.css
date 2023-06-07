@@ -113,23 +113,28 @@
 }
 /*----------------------------------------------Hero-Frontal--------------------------------------*/
 
-
-.hero {
+.hero-container {
   background-image: linear-gradient(
       86.77deg,
       #111111 30.38%,
       rgba(17, 17, 17, 0) 65.61%
     ),
     url(../img/mobile-hero-placeholder-img.jpg);
-  max-width: 100vw;
-  background-position: center;
-  background-size: cover;
-}
-.hero-content {
+  min-width: 100vw !important;
+  background-position: center !important;
+  background-size: cover !important;
   text-align: left;
   padding-top: 40px;
   padding-bottom: 80px;
 }
+.background-image{
+  background-repeat: no-repeat;
+}
+/* .hero-content {
+  text-align: left;
+  padding-top: 40px;
+  padding-bottom: 80px;
+} */
 .hero-title {
   font-family: 'Roboto';
   font-style: normal;
@@ -175,14 +180,19 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .hero {
+  .hero-container {
     background-image: linear-gradient(
         86.77deg,
         #111111 30.38%,
         rgba(17, 17, 17, 0) 65.61%
       ),
       url(../img/desktop-hero-placeholder-img.jpg);
-    max-height: 720px;
+    max-height: 720px !important;
+    min-width: 1280px !important;
+    padding-top: 169px;
+    padding-bottom: 169px;
+    padding-right: 16px;
+    padding-left: 16px;
   }
   .hero-title {
     font-size: 64px;
@@ -194,30 +204,33 @@
     line-height: 19px;
     width: 464px;
   }
-  .hero-content {
+  /* .hero-content {
     padding-top: 169px;
     padding-bottom: 169px;
     padding-right: 16px;
     padding-left: 16px;
-  }
+  } */
   .button {
     font-size: 16px;
     line-height: 24px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .hero {
+  .hero-container {
     background-image: linear-gradient(
         86.77deg,
         #111111 30.38%,
         rgba(17, 17, 17, 0) 65.61%
       ),
       url(../img/tablet-hero-placeholder-img.jpg);
+      min-width: 768px !important;
+      padding-top: 62px;
+      padding-bottom: 62px;
   }
-  .hero-content {
+  /* .hero-content{
     padding-top: 62px;
     padding-bottom: 62px;
-  }
+  } */
   .button {
     font-size: 14px;
     line-height: 20px;
