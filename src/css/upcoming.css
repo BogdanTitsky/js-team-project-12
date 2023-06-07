@@ -110,6 +110,7 @@
 }
 
 .upcoming__btn {
+  display: none;
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   border-radius: 74px;
   padding: 12px 24px;
@@ -122,6 +123,7 @@
 .upcoming__btn:focus {
   background: var(--color-white);
   color: var(--color-orange);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .remove-btn {
