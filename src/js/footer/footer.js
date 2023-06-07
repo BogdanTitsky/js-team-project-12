@@ -15,4 +15,9 @@ window.addEventListener('keydown', e => {
   }
 });
 
+document
+  .querySelector('#footer-modal, .modal__box')
+  .addEventListener('click', e => {
+    e.currentTarget.classList.remove('open');
+  });
 console.log('FOOTER');

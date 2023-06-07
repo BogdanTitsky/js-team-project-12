@@ -1,61 +1,34 @@
-import axios from 'axios';
-import { getGenres } from '../reuseble/tmdb-api';
+import { getUpcoming } from './get-upcoming';
+import { getGenresById } from './get-genres-by-id';
+import { createUpcomingMarkup, renderMarkup } from './upcoming-markup';
 
-const containerUpcoming = document.querySelector('.js-upcoming');
 // console.log(containerUpcoming);
 const upcomingBtnRef = document.querySelector('#upcoming-btn');
 
-async function getUpcoming() {
-  const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=183c3cacc9c38c09c14d38798ccfe9d7`;
-
-  try {
-    const { data } = await axios.get(url);
-    // console.log(data.results);
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-async function getGenresById(arr) {
-  try {
-    const allGenres = await getGenres();
-    const movieGenres = allGenres
-      .filter(g => arr.includes(g.id))
-      .map((g, index) => {
-        if (index === 0) {
-          return g.name;
-        } else {
-          return g.name.toLowerCase();
-        }
-      })
-      .join(', ');
-    // console.log(movieGenres);
-    return movieGenres;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-getUpcoming().then(async ({ results }) => {
+getUpcoming().then(async films => {
   const currentDate = new Date();
-  // console.log(currentDate);
-  const filmUpcoming = results.filter(
-    film => currentDate < Date.parse(film.release_date)
-  );
+  const currentMonth = currentDate.getMonth() + 1;
+
+  const filmUpcoming = films.filter(film => {
+    const releaseDate = new Date(film.release_date);
+    const filmMonth = releaseDate.getMonth() + 1;
+    return releaseDate > currentDate && filmMonth === currentMonth;
+  });
+
   if (filmUpcoming.length === 0) {
-    console.log('No');
-    // renderMarkupError();
+    console.log('No upcoming films this month.');
     return;
   }
+
   const random = Math.floor(Math.random() * filmUpcoming.length);
   const currentGenres = filmUpcoming[random].genre_ids;
   const genresName = await getGenresById(currentGenres);
 
   const render = createUpcomingMarkup(filmUpcoming[random], genresName);
-  // console.log(currentGenres);
-
   renderMarkup(render);
+  upcomingBtnRef.style.display = 'block';
+
+  console.log(filmUpcoming);
 
   // console.log(filmUpcoming[random]);
 
@@ -99,76 +72,3 @@ getUpcoming().then(async ({ results }) => {
 
   changeBtnName();
 });
-
-function toFormatDate(str) {
-  const date = new Date(str);
-  const formatDate = date.toLocaleString('uk', {
-    day: 'numeric',
-    month: 'numeric',
-    year: 'numeric',
-  });
-  // console.log(formatDate);
-  return formatDate;
-}
-
-function createUpcomingMarkup(
-  {
-    backdrop_path,
-    overview,
-    popularity,
-    release_date,
-    title,
-    vote_average,
-    vote_count,
-  },
-  genre
-) {
-  return `
-  <h2 class="upcoming-name">Upcoming this month</h2>
-  <div class="upcoming-content">
-      <img
-        class="upcoming__img"
-        src="https://image.tmdb.org/t/p/original/${backdrop_path}"
-        alt="${title}"/>
-
-      <div class="upcoming__wrapper">
-        <h3 class="upcoming__title">${title}</h3>
-        <div class="upcoming-thumb">
-          <ul class="upcoming-list left">
-            <li class="upcoming-list__item">
-              <p class="upcoming-list__text">Release date</p>
-              <p class="upcoming-list__date">${toFormatDate(release_date)}</p>
-            </li>
-            <li class="upcoming-list__item">
-              <p class="upcoming-list__text">Vote / Votes</p>
-              <p class="upcoming-list__vote">
-                <span class="vote"> ${vote_average.toFixed(
-                  1
-                )}</span> / <span class="vote">${vote_count}</span>
-              </p>
-            </li>
-          </ul>
-
-          <ul class="upcoming-list right">
-            <li class="upcoming-list__item">
-              <p class="upcoming-list__text">Popularity</p>
-              <p class="upcoming-list__popularity">${popularity.toFixed(1)}</p>
-            </li>
-            <li class="upcoming-list__item">
-              <p class="upcoming-list__text">Genre</p>
-              <p class="upcoming-list__genre">${genre}</p>
-            </li>
-          </ul>
-        </div>
-
-        <h3 class="upcoming-content__title">About</h3>
-        <p class="upcoming-content__text">${overview}
-        </p>
-       
-        
-  </div>`;
-}
-
-function renderMarkup(markup) {
-  containerUpcoming.innerHTML = markup;
-}
