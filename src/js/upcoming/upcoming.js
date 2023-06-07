@@ -26,6 +26,7 @@ getUpcoming().then(async films => {
 
   const render = createUpcomingMarkup(filmUpcoming[random], genresName);
   renderMarkup(render);
+  upcomingBtnRef.style.display = 'block';
 
   console.log(filmUpcoming);
 

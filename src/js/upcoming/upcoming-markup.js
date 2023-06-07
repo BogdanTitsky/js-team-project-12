@@ -25,9 +25,9 @@ export function createUpcomingMarkup(
 ) {
   const imagePath = backdrop_path
     ? `https://image.tmdb.org/t/p/original/${backdrop_path}`
-    : '../../img/no-image.jpg';
+    : './img/no-image.jpg';
 
-  const description = overview ? overview : 'Sorry! No description';
+  const description = overview ? overview : 'Sorry! No description.';
 
   return `
   <h2 class="upcoming-name">Upcoming this month</h2>
