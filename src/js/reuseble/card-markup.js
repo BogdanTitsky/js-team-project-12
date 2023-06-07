@@ -1,5 +1,6 @@
 import { makeStarRating } from './star-rating';
 import getGenresMap from './genres';
+import commingSoon from '../../img/comingSoon.jpg';
 
 async function makeMarkup(arr, mobileCount = 100) {
   const genresMap = await getGenresMap();
@@ -7,9 +8,14 @@ async function makeMarkup(arr, mobileCount = 100) {
     .map(({ poster_path, title, genre_ids, release_date, vote_average }, i) => {
       const imagePath = poster_path
         ? `https://image.tmdb.org/t/p/w300${poster_path}`
-        : '../../img/comingSoon.jpg';
-      console.log(i)
-      const hideMobile = (i >= mobileCount) ? "hide-mobile" : "";
+        : commingSoon;
+
+      const hideMobile = i >= mobileCount ? 'hide-mobile' : '';
+      const genresString = genre_ids
+        .slice(0, 2)
+        .map(id => genresMap[id])
+        .join(', ');
+      const year = release_date.substr(0, 4)
 
       return `
 <li class="film-card ${hideMobile}">
@@ -22,15 +28,8 @@ async function makeMarkup(arr, mobileCount = 100) {
         </p>
       <div class="genre-rating">
         <p class="info-genre">
-          ${genre_ids
-            .slice(0, 2)
-            .map(id => genresMap[id])
-            .join(
-              ', '
-            )} | <span class="info-release-date"> ${release_date.substr(
-        0,
-        4
-      )}</span>
+          ${genresString !== "" ? genresString : "Unknown"} |
+          <span class="info-release-date"> ${year !== "" ? year : "Unknown"}</span>
         </p>
 
         <div class="rating">
