@@ -28,3 +28,15 @@ export async function getGenres() {
     console.log(error);
   }
 }
+
+export async function getMovieDetailsInfo(movieId) {
+  const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`;
+  try {
+    const response = await axios.get(url);
+    const movieDetails = await response.data;
+    console.log(movieDetails);
+    return movieDetails;
+  } catch (error) {
+    console.log(error);
+  }
+}

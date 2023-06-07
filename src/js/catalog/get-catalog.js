@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { makeMarkup } from '../reuseble/card-markup';
+import { makeMarkup } from '../reuseble/markups.js';
 
 import { initPagination } from './pagination';
 
