@@ -1,18 +1,20 @@
-.hero-container {
+.hero-section-preview {
   background-image: linear-gradient(
       86.77deg,
       #111111 30.38%,
       rgba(17, 17, 17, 0) 65.61%
     ),
     url(../img/mobile-hero-placeholder-img.jpg);
-  min-width: 100vw !important;
+  min-width: 320px !important;
   background-position: center !important;
   background-size: cover !important;
   text-align: left;
+  background-repeat: no-repeat !important;
+}
+.hero-container{
   padding-top: 40px;
   padding-bottom: 80px;
 }
-
 .background-image{
   background-repeat: no-repeat;
 }
@@ -46,7 +48,6 @@
 }
 .button {
   padding: 12px 24px;
- 
   border-radius: 74px;
   font-family: 'Roboto';
   font-style: normal;
@@ -63,17 +64,22 @@
   color: #FFFFFF;
   border: 1px solid #FFFFFF;
 }
+.default-button{
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+
+}
 
 @media screen and (min-width: 1280px) {
-  .hero-container {
+  .hero-section-preview {
     background-image: linear-gradient(
         86.77deg,
         #111111 30.38%,
         rgba(17, 17, 17, 0) 65.61%
       ),
       url(../img/desktop-hero-placeholder-img.jpg);
-    max-height: 720px !important;
     min-width: 1280px !important;
+  }
+  .hero-container{
     padding-top: 169px;
     padding-bottom: 169px;
     padding-right: 16px;
@@ -105,7 +111,7 @@
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .hero-container {
+  .hero-section-preview {
     background-image: linear-gradient(
         86.77deg,
         #111111 30.38%,
@@ -113,8 +119,11 @@
       ),
       url(../img/tablet-hero-placeholder-img.jpg);
       min-width: 768px !important;
-      padding-top: 62px;
-      padding-bottom: 62px;
+     
+  }
+  .hero-container{
+    padding-top: 62px;
+    padding-bottom: 62px;
   }
   .uplifted{
     padding-top: 36px;
