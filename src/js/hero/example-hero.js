@@ -35,13 +35,12 @@ function loadHeroMarkup(movieArray) {
   fillRatings(contentBlock);
   openTrailerModal();
 }
+
 // functions workflow
 
-getRandomFilm()
-  .then(movieArray => {
-    console.log(movieArray[0]);
-    loadHeroMarkup(movieArray);
-  })
-  .catch(error => {
-    console.log('Помилка при рендерингу тренду дня!:', error);
-  });
+async function fetchAndRender(){
+ const movieArray = await getRandomFilm();
+ console.log(movieArray[0]);
+ loadHeroMarkup(movieArray);
+}
+fetchAndRender();
