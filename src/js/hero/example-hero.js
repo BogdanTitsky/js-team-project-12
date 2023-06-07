@@ -11,6 +11,7 @@ async function fetchRandomFilm() {
     );
     const informationMovie = info.data;
     const movieArray = informationMovie.results;
+
     return movieArray;
   } catch (error) {
     console.log('Помилка при рендерингу списку фільмів:', error);
@@ -19,8 +20,9 @@ async function fetchRandomFilm() {
 
 function loadHeroMarkup(movieArray) {
   const movie = movieArray[Math.floor(Math.random() * movieArray.length)];
+  console.log(movie.backdrop_path);
   const heroMarkup = `
-  <div >
+  <div class="задай свій клас і стилізуй" style="background: url(https://image.tmdb.org/t/p/w300${movie.backdrop_path})">
            <h1 class="hero-title">${movie.title}</h1>
            <p>Тут повинні бути  зірочки замість цифри: <br> 
            ${movie.vote_average}</p>
