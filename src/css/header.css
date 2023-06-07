@@ -48,13 +48,6 @@
       }
   }
 
-  /* @media screen and (min-width: 1280px) {
-    .header{
-      max-width: 1280px;
-    }
-    }  */
-
-
 .logo-link {
   display: flex;
   justify-content: flex-start;
@@ -124,6 +117,10 @@ color: inherit;
   color: var(--color-orange);
 }
 
+body.light .nav-link {
+  color:  #595959;
+}
+
 .theme-switch {
   position: relative;
 
@@ -182,6 +179,12 @@ body.light .theme-switch .icon-switch {
   left: 5px;
 }
 
+.theme-switch .icon-switch.rotate {
+  transform: rotate(180deg);
+  right: auto;
+  left: 5px;
+}
+
 
 @media screen and (min-width: 768px) {
     
@@ -211,8 +214,6 @@ body.light .theme-switch .icon-switch {
   }
 
 }
-
-
 
 /* Стили для мобильного меню */
 
@@ -244,6 +245,10 @@ color: #B7B7B7;
   color: var(--color-orange);
 }
 
+body.light .menu-button {
+  color:  #595959;
+}
+
 @media screen and (min-width: 768px) {
   .menu-button {
     display: none;
@@ -257,7 +262,7 @@ color: #B7B7B7;
   transition: transform 2500ms ease;
   }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .menu-container.is-open {
     display: block;
     position: absolute;
@@ -292,7 +297,7 @@ color: #B7B7B7;
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .logo-title, .nav, .page-overlay {
     display: none;
   }
