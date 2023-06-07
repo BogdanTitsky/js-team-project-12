@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { makeMarkup } from '../reuseble/card-markup';
+import { makeMarkup } from '../reuseble/markups.js';
 import Notiflix from 'notiflix';
 
 
@@ -9,6 +9,7 @@ import 'tui-pagination/dist/tui-pagination.min.css';
 
 import throttle from 'lodash.throttle';
 import { fillRatings } from '../reuseble/star-rating';
+import { assignModalListeners } from '../modal/modal.js';
 
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
@@ -64,6 +65,7 @@ if (getMovie.length === 0) {
   const markupMovie = await makeMarkup(getMovie);
   movieList(markupMovie);
   fillRatings(refs.filmList);
+  assignModalListeners();
 }
 async function renderMovieList(page) {
   try {
