@@ -262,6 +262,7 @@
   }
 }
 .team-modal__text-wrap {
+  color: var(--color-white);
   @media screen and (min-width: 768px) {
     align-content: center;
     display: flex;
