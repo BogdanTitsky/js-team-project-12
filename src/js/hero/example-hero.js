@@ -11,7 +11,6 @@ async function fetchRandomFilm() {
     );
     const informationMovie = info.data;
     const movieArray = informationMovie.results;
-
     return movieArray;
   } catch (error) {
     console.log('Помилка при рендерингу списку фільмів:', error);
