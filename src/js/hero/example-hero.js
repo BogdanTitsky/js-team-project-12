@@ -11,7 +11,8 @@ async function getRandomFilm() {
       `https://api.themoviedb.org/3/trending/movie/day?api_key=${keyApi}&language=en-US`
     );
     const informationMovie = info.data;
-    return informationMovie.results;
+    const movieArray = informationMovie.results;
+    return movieArray;
   } catch (error) {
     console.log('Помилка при рендерингу списку фільмів:', error);
   }
@@ -19,6 +20,7 @@ async function getRandomFilm() {
 
 function loadHeroMarkup(movieArray) {
   const movie = movieArray[Math.floor(Math.random() * movieArray.length)];
+
   const heroMarkup = `
   <div>
            <h1 class="hero-title">${movie.title}</h1>
@@ -26,7 +28,9 @@ function loadHeroMarkup(movieArray) {
           ${makeStarRating(movie.vote_average)}
           </div>
            <p class="hero-text">${movie.overview}</p>
-           <button type="button" class="button watch-trailer" data-id=${movie.id}>Watch trailer</button>
+           <button type="button" class="button watch-trailer" data-id=${
+             movie.id
+           }>Watch trailer</button>
            <button type="button" class="button-more-details">More details</button>
            </div>
            `;
@@ -38,9 +42,9 @@ function loadHeroMarkup(movieArray) {
 
 // functions workflow
 
-async function fetchAndRender(){
- const movieArray = await getRandomFilm();
- console.log(movieArray[0]);
- loadHeroMarkup(movieArray);
+async function fetchAndRender() {
+  const movieArray = await getRandomFilm();
+  console.log(movieArray[0]);
+  loadHeroMarkup(movieArray);
 }
 fetchAndRender();
