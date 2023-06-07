@@ -126,3 +126,35 @@ function initPagination(totalPages) {
   });
 }
 renderMovieList('', currentPage);
+
+const buttonClose = document.querySelector('.btn-close');
+const inputArea = document.querySelector('.search-input__area')
+
+
+
+inputArea.addEventListener('keyup', ()=> {
+  buttonHider()
+})
+
+buttonClose.addEventListener('click', ()=> {
+  inputArea.value='';
+  buttonClose.classList.add('btn-none');
+})
+
+function butFunc () {
+  buttonClose.classList.toggle('btn-none')
+}
+butFunc();
+
+function buttonHider () {
+  console.log('buttonHider start');
+  if (inputArea.value.length===0) {
+    buttonClose.classList.add('btn-none')
+  }
+  else {
+    buttonClose.classList.remove('btn-none')
+    console.log ('else')
+  }
+
+
+}
