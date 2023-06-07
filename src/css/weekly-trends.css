@@ -12,7 +12,7 @@
   font-size: 16px;
   line-height: calc(19 / 16);
   text-transform: uppercase;
-  color: var(--color-white);
+  color: inherit;
 }
 
 .see-all-link {
