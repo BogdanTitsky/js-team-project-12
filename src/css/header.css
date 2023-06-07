@@ -96,6 +96,10 @@ body.light .nav-link {
   color:  #595959;
 }
 
+body.light .nav-link.link-current{
+  color: var(--color-orange);
+}
+
 body.light .nav-link:hover, body.light .nav-link:focus{
   color: var(--color-orange);
 }
@@ -228,7 +232,7 @@ body.light .menu-button {
   color:  #595959;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
   .menu-button {
     display: none;
   }
@@ -314,20 +318,20 @@ body.light .menu-button {
 }
 
 .dark {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: var(--color-black-dark-theme);
+  color: var(--color-secondary-text);
 }
 
 .light {
   background-color: var(--color-white);
-  color: var(--primary-color);
+  color: var(--color-black-dark-theme);
 }
 .dark header {
   background-color: var(--primary-color);
-  color: var(--color-white);
+  color: var(--color-secondary-text);
 }
 
 .light header {
   background-color: var(--color-white);
-  color: var(--primary-color)
+  color: var(--color-black-text)
 }
