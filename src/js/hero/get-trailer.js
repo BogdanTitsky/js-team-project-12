@@ -17,8 +17,6 @@ export default async function openTrailerModal() {
   btnTrailer.addEventListener('click', async e => {
     const movieId = e.target.dataset.id;
 
-    btnTrailer.disabled = true;
-
     try {
       const { key } = await getTrailer(movieId);
 
@@ -30,7 +28,6 @@ export default async function openTrailerModal() {
       showPopUp();
     }
   });
-  btnTrailer.disabled = false;
 }
 
 async function getTrailer(id) {
