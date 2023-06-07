@@ -18,7 +18,8 @@
       <div class="rating-value">${e}</div>
     </div>
     `}function En(e){const t=e.querySelectorAll(".rating");t.length===0?console.log("rating error"):gn(t)}function gn(e){for(let t=0;t<e.length;t+=1){const n=e[t],r=n.querySelector(".rating-value").innerHTML,o=n.querySelector(".rating-active");Sn(r,o)}}function Sn(e,t){const n=e*10;t.style.width=`${n}%`}const Rn="183c3cacc9c38c09c14d38798ccfe9d7",Y=document.querySelector(".hero");async function On(){try{return(await _.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${Rn}&language=en-US`)).data.results}catch(e){console.log("Помилка при запиту списку фільмів:",e)}}function An(e){const t=e[Math.floor(Math.random()*e.length)],n=`
-  <div class="container hero-container uplifted" style = "background: linear-gradient(86.77deg,#111111 30.38%,rgba(17, 17, 17, 0) 65.61%), url(https://image.tmdb.org/t/p/w1280${t.backdrop_path});">
+  <section class="hero-section-preview" style = "background: linear-gradient(86.77deg,#111111 30.38%,rgba(17, 17, 17, 0) 65.61%), url(https://image.tmdb.org/t/p/original${t.backdrop_path});">
+  <div class="container hero-container uplifted">
     <div class ="hero-content"> 
       <h1 class="hero-title">${t.title}</h1>
         <div class="rating">
@@ -31,4 +32,5 @@
           </div>
     </div>
   <div>
+  </section>
            `;try{Y.innerHTML="",Y.insertAdjacentHTML("beforeend",n),En(Y),dn()}catch(r){console.log("Помилка при рендерингу секції:",r)}}async function Tn(){try{const e=await On();An(e)}catch(e){console.log("Помилка при завантаженні секції:",e)}}Tn();const ue="183c3cacc9c38c09c14d38798ccfe9d7",de="https://api.themoviedb.org/3";async function Pn(e="week",t=3){const n=`${de}/trending/movie/${e}?api_key=${ue}`;try{const s=(await(await _.get(n)).data).results;return console.log(s),s.slice(0,t)}catch(r){console.log(r)}}async function Ln(){const e=`${de}/genre/movie/list?api_key=${ue}`;try{const r=(await(await _.get(e)).data).genres;return console.log(r),r}catch(t){console.log(t)}}async function xn(e){const t=`${de}/movie/${e}?api_key=${ue}`;try{const r=await(await _.get(t)).data;return console.log(r),r}catch(n){console.log(n)}}let Z;async function Nn(){if(Z===void 0)try{Z=(await Ln()).reduce((t,{id:n,name:r})=>(t[n]=r,t),{})}catch(e){console.error(e)}return Z}document.getElementById("open-modal-btn").addEventListener("click",function(){document.getElementById("footer-modal").classList.add("open")});document.getElementById("close-modal-btn").addEventListener("click",function(){document.getElementById("footer-modal").classList.remove("open")});window.addEventListener("keydown",e=>{e.key==="Escape"&&document.getElementById("footer-modal").classList.remove("open")});document.querySelector("#footer-modal, .modal__box").addEventListener("click",e=>{e.currentTarget.classList.remove("open")});console.log("FOOTER");export{_ as a,Pn as b,Nn as c,xn as d,En as f,Ln as g,wn as m};
