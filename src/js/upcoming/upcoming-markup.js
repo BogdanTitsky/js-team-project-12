@@ -1,3 +1,5 @@
+import noImage from '../../img/no-image.jpg';
+
 const containerUpcoming = document.querySelector('.js-upcoming');
 
 function toFormatDate(str) {
@@ -25,7 +27,7 @@ export function createUpcomingMarkup(
 ) {
   const imagePath = backdrop_path
     ? `https://image.tmdb.org/t/p/original/${backdrop_path}`
-    : '/img/no-image.jpg';
+    : noImage;
 
   const description = overview ? overview : 'Sorry! No description.';
 

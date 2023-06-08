@@ -28,7 +28,7 @@ getUpcoming().then(async films => {
   renderMarkup(render);
   upcomingBtnRef.style.display = 'block';
 
-  console.log(filmUpcoming);
+  // console.log(filmUpcoming);
 
   // console.log(filmUpcoming[random]);
 
