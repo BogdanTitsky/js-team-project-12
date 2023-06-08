@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { makeMarkup } from '../reuseble/card-markup';
+import { makeMarkup } from '../reuseble/markups.js';
 import Notiflix from 'notiflix';
 
 
@@ -9,17 +9,18 @@ import 'tui-pagination/dist/tui-pagination.min.css';
 
 import throttle from 'lodash.throttle';
 import { fillRatings } from '../reuseble/star-rating';
+import { assignModalListeners } from '../modal/modal.js';
 
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
+
 async function getSearchMovie(query, page = 1) {
   try {
-    const response = await axios.get(`
-https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=${page}`);
-const data = await response.data;
-const movie = await data.results;
-console.log(movie)
-return movie;
+    const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=${page}`);
+    const data = await response.data;
+    const movie = await data.results;
+
+    return movie;
   }
   catch (error) {
     console.error('Помилка отримання масиву фільмів:', error);
@@ -64,6 +65,7 @@ if (getMovie.length === 0) {
   const markupMovie = await makeMarkup(getMovie);
   movieList(markupMovie);
   fillRatings(refs.filmList);
+  assignModalListeners();
 }
 async function renderMovieList(page) {
   try {
@@ -72,7 +74,7 @@ async function renderMovieList(page) {
 
     movieList(markup);
     if (pagination !== null) {
-      pagination.off();
+      pagination.reset();
     }
     if (movies.length > 0) {
       initPagination(movies.length);
@@ -94,7 +96,7 @@ function initPagination(totalPages) {
   const options = {
     totalItems: totalPages,
     itemsPerPage: 20,
-    visiblePages: 5,
+    visiblePages: 4,
     page: currentPage,
     centerAlign: true,
     firstItemClassName: 'tui-first-child',
@@ -118,7 +120,7 @@ function initPagination(totalPages) {
     },
   };
 
-  const pagination = new Pagination(refs.paginationContainer, options);
+  pagination = new Pagination(refs.paginationContainer, options);
 
   pagination.on('afterMove', async event => {
     currentPage = event.page;

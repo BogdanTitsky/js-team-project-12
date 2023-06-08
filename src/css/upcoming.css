@@ -69,7 +69,7 @@
 }
 
 .upcoming-content__text {
-  color: var(--color-secondary-text);
+  color:inherit;
   font-size: 14px;
   line-height: 20px;
   max-height: 220px;
