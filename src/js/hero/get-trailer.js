@@ -24,6 +24,7 @@ export default async function openTrailerModal() {
       const videoUrl = `https://www.youtube.com/embed/${key}`;
 
       trailerModal.insertAdjacentHTML('beforeend', modalTemplate(videoUrl));
+
       console.log(btnTrailer.disabled);
       showModal();
       btnTrailer.disabled = false;
@@ -48,7 +49,7 @@ async function getTrailer(id) {
 }
 
 function modalTemplate(videoUrl) {
-  return `<div>
+  return `<div class='video'>
 <div>
   <iframe
     id='trailer-video'
@@ -71,6 +72,11 @@ function hideModal() {
   overlay.classList.remove('overlay-active');
   trailerModal.classList.remove('trailer-modal-active');
   document.body.style.overflow = '';
+
+  const video = document.querySelector('.video');
+  if (video) {
+    video.remove();
+  }
 }
 
 function showPopUp() {
