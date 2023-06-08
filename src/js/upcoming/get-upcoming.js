@@ -10,7 +10,7 @@ export async function getUpcoming() {
     try {
       const { data } = await axios.get(url);
       upcomingMovies.push(...data.results);
-      // console.log(data.results);
+      //console.log(data.results);
     } catch (error) {
       console.error(error);
     }

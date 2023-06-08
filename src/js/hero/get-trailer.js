@@ -14,24 +14,25 @@ modalCloseSvg.addEventListener('click', hideModal);
 export default async function openTrailerModal() {
   const btnTrailer = document.querySelector('.watch-trailer');
 
-  btnTrailer.addEventListener('click', async e => {
-    const movieId = e.target.dataset.id;
+  btnTrailer.addEventListener(
+    'click',
+    async e => {
+      const movieId = e.target.dataset.id;
 
-    try {
-      const { key } = await getTrailer(movieId);
-      btnTrailer.disabled = true;
+      try {
+        const { key } = await getTrailer(movieId);
 
-      const videoUrl = `https://www.youtube.com/embed/${key}`;
+        const videoUrl = `https://www.youtube.com/embed/${key}`;
 
-      trailerModal.insertAdjacentHTML('beforeend', modalTemplate(videoUrl));
+        trailerModal.insertAdjacentHTML('beforeend', modalTemplate(videoUrl));
 
-      console.log(btnTrailer.disabled);
-      showModal();
-      btnTrailer.disabled = false;
-    } catch (error) {
-      showPopUp();
-    }
-  });
+        showModal();
+      } catch (error) {
+        showPopUp();
+      }
+    },
+    { once: true }
+  );
 }
 
 async function getTrailer(id) {
@@ -89,4 +90,18 @@ function hidePopUp() {
   overlay.classList.remove('overlay-active');
   heroPopUp.classList.remove('active');
   document.body.style.overflow = '';
+}
+
+if (overlay) {
+  overlay.addEventListener('click', event => {
+    if (event.target.className !== 'video') {
+      hideModal();
+    }
+  });
+
+  window.addEventListener('keydown', event => {
+    if (event.code === 'Escape') {
+      hideModal();
+    }
+  });
 }
