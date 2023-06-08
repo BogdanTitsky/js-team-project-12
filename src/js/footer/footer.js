@@ -22,4 +22,3 @@ document
   .addEventListener('click', e => {
     e.currentTarget.classList.remove('open');
   });
-console.log('FOOTER');
