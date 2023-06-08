@@ -40,6 +40,7 @@
 
   @media screen and (min-width: 1280px) {
     max-width: 1000px;
+
     padding: 30px;
   }
 }
@@ -61,7 +62,7 @@
 
   @media screen and (min-width: 1280px) {
     width: 800px;
-    height: 650px;
+    height: 500px;
   }
 }
 

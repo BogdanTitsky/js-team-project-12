@@ -19,11 +19,14 @@ export default async function openTrailerModal() {
 
     try {
       const { key } = await getTrailer(movieId);
+      btnTrailer.disabled = true;
 
       const videoUrl = `https://www.youtube.com/embed/${key}`;
 
       trailerModal.insertAdjacentHTML('beforeend', modalTemplate(videoUrl));
+      console.log(btnTrailer.disabled);
       showModal();
+      btnTrailer.disabled = false;
     } catch (error) {
       showPopUp();
     }
@@ -62,7 +65,6 @@ function showModal() {
   overlay.classList.add('overlay-active');
   trailerModal.classList.add('trailer-modal-active');
   document.body.style.overflow = 'hidden';
-  btn.disabled = false;
 }
 
 function hideModal() {
