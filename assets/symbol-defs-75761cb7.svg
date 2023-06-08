@@ -26,6 +26,12 @@
 <path d="M13.5 4.5L4.5 13.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M4.5 4.5L13.5 13.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
+<svg id="plagin-left"  viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.9375 1.125L1.0625 9L8.9375 16.875" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg id="plagin-right"  viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.0625 1.125L8.9375 9L1.0625 16.875" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 
 </defs>
 </svg>
