@@ -1,5 +1,5 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.min.css';
+// import 'tui-pagination/dist/tui-pagination.min.css';
 import { renderMovieList } from './get-catalog';
 
 const paginationElement = document.querySelector('#tui-pagination-container');
@@ -8,10 +8,10 @@ export async function initPagination() {
 
   const options = {
     totalItems: 1000,
-    itemsPerPage: 20,
-    visiblePages: 5,
+    itemsPerPage: 21,
+    visiblePages: 3,
     page: 1,
-    centerAlign: true,
+    centerAlign: false,
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
     template: {

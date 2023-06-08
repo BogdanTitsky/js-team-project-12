@@ -20,9 +20,9 @@
   color: #b7b7b7;
 }
 
-.form-search input:active {
+/* .form-search input:active {
   
-}
+} */
 
 /* .catalog-select{
   border: 1px solid #ffffff;
@@ -183,9 +183,8 @@ button:active {
 }
 
 
-
 /* test */
-
+/* 
 .catalog {
 }
 .catalog-container {
@@ -216,4 +215,128 @@ button:active {
 }
 .weelky-trends-list {
 }
+ */
 
+.tui-ico-prev {
+  background-image: url(../img/symbol-defs.svg#plagin-left);
+  }
+  
+.tui-ico-next {
+  background-image: url(../img/symbol-defs.svg#plagin-right);
+  
+}
+/* .tui-ico-prev,
+.tui-ico-next {
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  background-size: contain;
+} */
+
+
+.tui-pagination {
+  height: 24px;
+  margin: 12px 0;
+  line-height: normal;
+  text-align: center;
+  font-size: 0;
+}
+
+@media screen and (min-width: 768px){
+  .tui-pagination {
+    height: 40px;
+    margin: 20px 0;
+    margin-top: 40px;
+    }
+}
+
+.tui-pagination .tui-page-btn {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  padding: 7px 6px;
+  margin-left: 0;
+  margin-right: 8px;
+  color: inherit;
+  font-size: 10px;
+  font-weight: normal;
+  line-height: 1;
+  text-decoration: none;
+  vertical-align: middle;
+  border-radius: 50%;
+  border: 1px solid #595959;
+}
+@media screen and (min-width: 768px){
+  .tui-pagination .tui-page-btn {
+    width: 40px;
+    height: 40px;
+    padding: 13px 12px;
+    margin-right: 16px;
+    font-size: 12px;
+    }
+}
+
+/* body.light .tui-pagination .tui-page-btn {
+  border: 1px solid var(--color-orange);
+  color: var(--color-black-dark-theme);
+} */
+
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  color: var(--color-white);
+  background: var(--color-linear-orange);
+  border-radius: 50%;
+  cursor: default;
+  border: none;
+}
+
+.tui-pagination .tui-page-btn:hover {
+  background: var(--color-linear-orange);
+  border: none;
+}
+
+body.light-theme .tui-pagination .tui-page-btn:hover {
+  color: var(--color-white);
+}
+
+.tui-pagination .tui-prev,
+.tui-pagination .tui-next {
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  padding: 7px;
+  font-size: 0;
+  line-height: 26px;
+  white-space: nowrap;
+  font-weight: normal;
+  border: none;
+  }
+
+.tui-pagination .tui-prev {
+  margin-right: 10px;
+  }
+
+.tui-pagination .tui-ico-first {
+  display: none;
+  background: none;
+  border: none;
+}
+
+.tui-pagination .tui-first {
+  display: none;
+  background: none;
+  border: none;
+}
+
+.tui-pagination .tui-ico-last {
+  display: none;
+  background: none;
+  border: none;
+}
+
+.tui-pagination .tui-last {
+  display: none;
+  background: none;
+  border: none;
+}
