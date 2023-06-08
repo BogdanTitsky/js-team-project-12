@@ -1,3 +1,7 @@
+.weelky-trends-section {
+  padding-top: 40px;
+}
+
 .wrapper {
   display: flex;
   justify-content: space-between;
@@ -88,7 +92,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .weekly-trends {
+  .weekly-trends-section {
     padding-top: 52px;
   }
 
@@ -112,7 +116,7 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .weekly-trends {
+  .weekly-trends-section {
     padding-top: 80px;
   }
 

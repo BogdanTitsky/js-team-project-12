@@ -8,7 +8,7 @@ function wrapPosterPath(poster_path) {
     : commingSoon;
 }
 
-export async function makeMarkup(moviesList, mobileCount = 100) {
+export async function createMovieCardsMarkup(moviesList, mobileCount = 100) {
   const genresMap = await getGenresMap();
   return moviesList
     .map(
@@ -21,11 +21,11 @@ export async function makeMarkup(moviesList, mobileCount = 100) {
           .slice(0, 2)
           .map(id => genresMap[id])
           .join(', ');
-        const year = release_date.substr(0, 4);
+        const year = release_date.substring(0, 4);
 
         return `
 <li class="film-card ${hideMobile}">
-  <a href="#" class="film-card-link" movie_id="${id}">
+  <a href="#" class="film-card-link" data-id="${id}">
     <img class="film-card-img" src="${wrapPosterPath(
       poster_path
     )}" alt="${title}" loading="lazy" />
@@ -54,7 +54,7 @@ export async function makeMarkup(moviesList, mobileCount = 100) {
     .join('');
 }
 
-export function createModalMarkup({
+export function createMoveiDetailsMarkup({
   title,
   poster_path,
   vote_average,
@@ -65,7 +65,7 @@ export function createModalMarkup({
 }) {
   return `
   <div class="modal-wrap">
-  
+
       <button class="modal__close" type="button">
         <svg class="modal__svg" width="24" height="24">
           <use href="./img/symbol-defs.svg#icon-close-hero-modal"></use>
@@ -106,4 +106,28 @@ export function createModalMarkup({
         </button>
       </div>
     </div>`;
+}
+
+export function createHeroMarkup(movie) {
+  return `
+  <div class="hero-section-preview" style = "background: linear-gradient(86.47deg,#111111 41.63%,rgba(17,17,17,0) 86.86%), url(https://image.tmdb.org/t/p/original${
+    movie.backdrop_path
+  });">
+  <div class="container hero-container uplifted">
+    <div class ="hero-content">
+      <h1 class="hero-title">${movie.title}</h1>
+        <div class="rating">
+          ${makeStarRating(movie.vote_average)}
+        </div>
+          <p class="hero-text">${movie.overview}</p>
+          <div class="buttons">
+          <button type="button" class="button watch-trailer" data-id=${
+    movie.id
+  }>Watch trailer</button>
+          <button type="button" class="button more-details film-card-link" data-id=${movie.id}>More details</button>
+          </div>
+    </div>
+  <div>
+  </div>
+           `;
 }

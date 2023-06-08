@@ -1,27 +1,27 @@
 import { getMovieDetailsInfo } from '../reuseble/tmdb-api.js';
-import { createModalMarkup } from '../reuseble/markups.js';
+import { createMoveiDetailsMarkup } from '../reuseble/markups.js';
 
-const modalContainer = document.querySelector('.modal-backdrop');
+const modalContainer = document.getElementById('modal-backdrop');
 let closeModalBtn;
 let modalRef;
 
-export function assignModalListeners() {
-  const movieCards = document.querySelectorAll('.film-card-link');
+// Movie Details Modal
+export function assignMovieDetailsModalListener(container) {
+  const movieCards = container.querySelectorAll('.film-card-link');
   movieCards.forEach(link => {
-    const movieId = link.getAttribute('movie_id');
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      openModal(movieId);
-    });
+    link.addEventListener('click', movieDetailsModalListener);
   });
 }
 
-async function openModal(movieId) {
+export async function movieDetailsModalListener(event) {
+  event.preventDefault();
+  const movieId = event.currentTarget.dataset.id;
   const movieDatails = await getMovieDetailsInfo(movieId);
-  modalContainer.innerHTML = createModalMarkup(movieDatails);
+  modalContainer.innerHTML = createMoveiDetailsMarkup(movieDatails);
   showModal();
 }
-function showModal() {
+
+export function showModal() {
   modalRef = document.querySelector('.modal-section');
   modalRef.style.display = 'block';
   closeModalBtn = document.querySelector('.modal__close');
@@ -39,14 +39,16 @@ function onEscapeKeyDown(event) {
     closeModal();
   }
 }
+
 function onModalBackdropClick(event) {
   if (event.target === modalContainer) {
     closeModal();
   }
 }
+
 function closeModal() {
-  modalContainer.innerHTML = '';
   modalRef.style.display = 'none';
+  modalContainer.innerHTML = '';
   closeModalBtn.removeEventListener('click', onModalBtnClick);
   document.removeEventListener('keydown', onEscapeKeyDown);
   modalContainer.removeEventListener('click', onModalBackdropClick);

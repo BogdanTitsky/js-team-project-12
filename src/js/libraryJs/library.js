@@ -14,16 +14,16 @@ if (localStorage.length) {
   const parsed = JSON.parse(storageLoc);
   console.log(parsed);
   createUpcomingMarkup(parsed);
-  
+
   if (parsed.length >= 1) {
     librCatch.classList.add('display');
-  } 
-} 
+  }
+}
 
- 
+
 
 async function createUpcomingMarkup(parsed) {
-  
+
     const genresMap = await getGenresMap()
     const markup = parsed
       .map(
@@ -43,7 +43,7 @@ async function createUpcomingMarkup(parsed) {
             .map(id => genresMap[id])
             .join(
               ', '
-            )} | <span class="info-release-date"> ${release_date.substr(
+            )} | <span class="info-release-date"> ${release_date.substring(
             0,
             4
           )}</span>
@@ -61,7 +61,7 @@ async function createUpcomingMarkup(parsed) {
     librList.innerHTML = markup;
   }
 
-//load more 
+//load more
 const loadmorebtn = document.querySelector('.loadmorebtn');
 
  loadmorebtn.addEventListener('click', loadPosts);
@@ -70,7 +70,7 @@ function loadPosts() {
    console.log(15)
    const posts = localStorage.getItem(key);
    const parsed = JSON.parse(posts);
-   
+
    for (let i = 0; i < posts.length; i++) {
       const genresMap = getGenresMap()
     const markup = parsed
@@ -91,7 +91,7 @@ function loadPosts() {
             .map(id => genresMap[id])
             .join(
               ', '
-            )} | <span class="info-release-date"> ${release_date.substr(
+            )} | <span class="info-release-date"> ${release_date.substring(
             0,
             4
           )}</span>
@@ -100,7 +100,7 @@ function loadPosts() {
       <div class="rating">
         ${makeStarRating(vote_average)}
       </div>
-     
+
     </div>
   </a>
 </li>`
@@ -109,5 +109,5 @@ function loadPosts() {
 
     librList.insertAdjacentHTML =('beforeend',markup) ;
     }
-   
+
  }
