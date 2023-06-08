@@ -63,22 +63,26 @@ export function createModalMarkup({
   genres,
   overview,
 }) {
-  return `<div class="modal-wrap">
+  return `
+  <div class="modal-wrap">
+  
       <button class="modal__close" type="button">
         <svg class="modal__svg" width="24" height="24">
-          <use href=""></use>
+          <use href="./img/symbol-defs.svg#icon-close-hero-modal"></use>
         </svg>
       </button>
+      <div class="modal-display">
       <img src="${wrapPosterPath(
         poster_path
       )}" alt="${title}" class="modal__img" />
+      </div>
       <div class="modal__wrap">
         <h2 class="modal__title">${title}</h2>
         <ul class="modal-list">
           <li class="modal-list__item">
             <p class="modal-list__text">Vote / Votes</p>
             <div class="modal-list__wrap">
-              <span class="modal-list__vote">${vote_average}</span>/
+              <span class="modal-list__vote">${vote_average}</span> /
               <span class="modal-list__vote">${vote_count}</span>
             </div>
           </li>
