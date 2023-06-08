@@ -53,7 +53,7 @@
 }
 .watch-trailer{
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-  transition: all 500ms cubic-bezier( .42, 0, .58, 1 );
+  transition: all 250ms cubic-bezier( .42, 0, .58, 1 );
 }
 .watch-trailer:hover, .watch-trailer:active, .watch-trailer:focus{
   color: #F87719;
@@ -63,7 +63,7 @@
   background-color: transparent;
   color: #f8f8f8;
   border: 1px solid #f8f8f8;
-  transition: all  400ms cubic-bezier( .42, 0, .58, 1 );
+  transition: all  250ms cubic-bezier( .42, 0, .58, 1 );
 }
 .more-details:hover, .more-details:active, .more-details:focus{
   color: #F87719;
