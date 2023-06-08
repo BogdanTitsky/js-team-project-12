@@ -20,7 +20,7 @@ async function getRandomFilm() {
 function loadHeroMarkup(movieArray) {
     const movie = movieArray[Math.floor(Math.random() * movieArray.length)];
   const heroMarkup = `
-  <section class="hero-section-preview" style = "background: linear-gradient(86.77deg,#111111 30.38%,rgba(17, 17, 17, 0) 65.61%), url(https://image.tmdb.org/t/p/original${movie.backdrop_path});">
+  <div class="hero-section-preview" style = "background: linear-gradient(86.47deg,#111111 41.63%,rgba(17,17,17,0) 86.86%), url(https://image.tmdb.org/t/p/original${movie.backdrop_path});">
   <div class="container hero-container uplifted">
     <div class ="hero-content"> 
       <h1 class="hero-title">${movie.title}</h1>
@@ -34,7 +34,7 @@ function loadHeroMarkup(movieArray) {
           </div>
     </div>
   <div>
-  </section>
+  </div>
            `;
  try {
   contentBlock.innerHTML = ``;
