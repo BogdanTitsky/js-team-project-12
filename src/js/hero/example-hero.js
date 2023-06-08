@@ -18,9 +18,11 @@ async function getRandomFilm() {
 }
 
 function loadHeroMarkup(movieArray) {
-    const movie = movieArray[Math.floor(Math.random() * movieArray.length)];
+  const movie = movieArray[Math.floor(Math.random() * movieArray.length)];
   const heroMarkup = `
-  <div class="hero-section-preview" style = "background: linear-gradient(86.47deg,#111111 41.63%,rgba(17,17,17,0) 86.86%), url(https://image.tmdb.org/t/p/original${movie.backdrop_path});">
+  <div class="hero-section-preview" style = "background: linear-gradient(86.47deg,#111111 41.63%,rgba(17,17,17,0) 86.86%), url(https://image.tmdb.org/t/p/original${
+    movie.backdrop_path
+  });">
   <div class="container hero-container uplifted">
     <div class ="hero-content"> 
       <h1 class="hero-title">${movie.title}</h1>
@@ -29,32 +31,33 @@ function loadHeroMarkup(movieArray) {
         </div>
           <p class="hero-text">${movie.overview}</p>
           <div class="buttons">
-          <button type="button" class="button watch-trailer" data-id=${movie.id}>Watch trailer</button>
+          <button type="button" class="button watch-trailer" data-id=${
+            movie.id
+          }>Watch trailer</button>
           <button type="button" class="button more-details">More details</button>
           </div>
     </div>
   <div>
   </div>
            `;
- try {
-  contentBlock.innerHTML = ``;
-  contentBlock.insertAdjacentHTML(`beforeend`, heroMarkup);
-  fillRatings(contentBlock);
-  openTrailerModal();      
-} catch (error) {
-  console.log('Помилка при рендерингу секції:', error);
+  try {
+    contentBlock.innerHTML = ``;
+    contentBlock.insertAdjacentHTML(`beforeend`, heroMarkup);
+    fillRatings(contentBlock);
+    openTrailerModal();
+  } catch (error) {
+    console.log('Помилка при рендерингу секції:', error);
   }
 }
 
 // functions workflow
 
-async function fetchAndRender(){
+async function fetchAndRender() {
   try {
-  const movieArray = await getRandomFilm();
- loadHeroMarkup(movieArray);
+    const movieArray = await getRandomFilm();
+    loadHeroMarkup(movieArray);
   } catch (error) {
     console.log('Помилка при завантаженні секції:', error);
   }
- 
 }
 fetchAndRender();
