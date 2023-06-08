@@ -53,6 +53,7 @@
 }
 .watch-trailer{
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  transition: all 500ms cubic-bezier( .42, 0, .58, 1 );
 }
 .watch-trailer:hover, .watch-trailer:active, .watch-trailer:focus{
   color: #F87719;
@@ -62,6 +63,7 @@
   background-color: transparent;
   color: #f8f8f8;
   border: 1px solid #f8f8f8;
+  transition: all  400ms cubic-bezier( .42, 0, .58, 1 );
 }
 .more-details:hover, .more-details:active, .more-details:focus{
   color: #F87719;
@@ -71,7 +73,7 @@
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 
 }
-/* @media (min-device-pixel-ratio: 2),
+@media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
     .hero-section-preview{
@@ -92,7 +94,7 @@
           rgba(17, 17, 17, 0) 65.61%
         ), url(../img/mobile-hero-placeholder-img@3x.jpg);
     }
-  }  */
+  } 
 
 @media screen and (min-width: 1280px) {
   .hero-section-preview {
@@ -104,7 +106,7 @@
       url(../img/desktop-hero-placeholder-img.jpg);
     min-width: 1280px !important;
   }
-  /* @media (min-device-pixel-ratio: 2),
+  @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
     .hero-section-preview{
@@ -125,7 +127,7 @@
           rgba(17, 17, 17, 0) 65.61%
         ), url(../img/desktop-hero-placeholder-img@3x.jpg);
     }
-  }  */
+  } 
   .hero-container{
     padding-top: 169px;
     padding-bottom: 169px;
@@ -163,7 +165,7 @@
       min-width: 768px !important;
      
   }
-  /* @media (min-device-pixel-ratio: 2),
+  @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
     .hero-section-preview{
@@ -184,7 +186,7 @@
           rgba(17, 17, 17, 0) 65.61%
         ), url(../img/tablet-hero-placeholder-img@3x.jpg);
     }
-  }  */
+  } 
   .hero-container{
     padding-top: 62px;
     padding-bottom: 62px;
