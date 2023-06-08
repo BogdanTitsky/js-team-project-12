@@ -1,4 +1,4 @@
-import{c as M,m as w,d as h}from"./footer-f353fa0c.js";const E="/js-team-project-12/assets/comingSoon-22be8f72.jpg";function v(s){return s?`https://image.tmdb.org/t/p/w300${s}`:E}async function C(s,a=100){const e=await M();return s.map(({id:t,poster_path:n,title:l,genre_ids:i,release_date:c,vote_average:y},k)=>{const b=k>=a?"hide-mobile":"",p=i.slice(0,2).map($=>e[$]).join(", "),u=c.substr(0,4);return`
+import{c as M,m as w,d as h}from"./footer-8cb7fe6f.js";const E="/js-team-project-12/assets/comingSoon-22be8f72.jpg";function v(s){return s?`https://image.tmdb.org/t/p/w300${s}`:E}async function C(s,a=100){const e=await M();return s.map(({id:t,poster_path:n,title:l,genre_ids:i,release_date:c,vote_average:y},k)=>{const b=k>=a?"hide-mobile":"",p=i.slice(0,2).map($=>e[$]).join(", "),u=c.substr(0,4);return`
 <li class="film-card ${b}">
   <a href="#" class="film-card-link" movie_id="${t}">
     <img class="film-card-img" src="${v(n)}" alt="${l}" loading="lazy" />
