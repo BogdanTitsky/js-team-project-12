@@ -69,7 +69,7 @@
 }
 
 .upcoming-content__text {
-  color:inherit;
+  color: inherit;
   font-size: 14px;
   line-height: 20px;
   max-height: 220px;
@@ -97,13 +97,13 @@
 }
 
 .upcoming-list__popularity {
-  color: var(--color-white);
+  color: inherit;
   line-height: 19px;
   margin-left: 78px;
 }
 
 .upcoming-list__genre {
-  color: var(--color-white);
+  color: inherit;
   line-height: 19px;
   margin-left: 107px;
   max-width: 120px;

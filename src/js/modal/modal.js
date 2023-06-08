@@ -17,12 +17,58 @@ export async function movieDetailsModalListener(event) {
   event.preventDefault();
   const movieId = event.currentTarget.dataset.id;
   const movieDatails = await getMovieDetailsInfo(movieId);
+  // console.log(movieDatails);
+
   modalContainer.innerHTML = createMoveiDetailsMarkup(movieDatails);
   showModal();
+
+  const modalBtnAdd = document.querySelector('.modal-btn');
+  // console.log(modalBtnAdd);
+
+  function changeModalBtnName() {
+    // const key = 'upcomingFilms';
+    let upcomingFilms = JSON.parse(localStorage.getItem(key)) || [];
+
+    const indexLocal = upcomingFilms.findIndex(
+      film => film.id === movieDatails.id
+    );
+
+    if (indexLocal === -1) {
+      modalBtnAdd.classList.remove('remove-btn');
+      modalBtnAdd.textContent = 'Add to my library';
+    } else {
+      modalBtnAdd.classList.add('remove-btn');
+      modalBtnAdd.textContent = 'Remove from my library';
+    }
+  }
+
+  const key = 'upcomingFilms';
+  modalBtnAdd.addEventListener('click', e => {
+    e.preventDefault();
+    let upcomingFilms = JSON.parse(localStorage.getItem(key)) || [];
+
+    const indexLocal = upcomingFilms.findIndex(
+      film => film.id === movieDatails.id
+    );
+    if (indexLocal === -1) {
+      upcomingFilms.push(movieDatails);
+      // console.log('Добавляет в localStorage');
+    } else {
+      upcomingFilms.splice(indexLocal, 1);
+      // console.log('Удаляет из localStorage');
+    }
+
+    localStorage.setItem(key, JSON.stringify(upcomingFilms));
+
+    changeModalBtnName();
+  });
+
+  changeModalBtnName();
 }
 
 export function showModal() {
   modalRef = document.querySelector('.modal-section');
+  document.body.style.overflow = 'hidden';
   modalRef.style.display = 'block';
   closeModalBtn = document.querySelector('.modal__close');
   closeModalBtn.addEventListener('click', onModalBtnClick);
@@ -47,6 +93,7 @@ function onModalBackdropClick(event) {
 }
 
 function closeModal() {
+  document.body.style.overflow = '';
   modalRef.style.display = 'none';
   modalContainer.innerHTML = '';
   closeModalBtn.removeEventListener('click', onModalBtnClick);
