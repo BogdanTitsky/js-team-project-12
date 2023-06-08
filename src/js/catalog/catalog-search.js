@@ -1,15 +1,15 @@
 import axios from 'axios';
-import { makeMarkup } from '../reuseble/markups.js';
+import { createMovieCardsMarkup } from '../reuseble/markups.js';
 import Notiflix from 'notiflix';
 
 
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.min.css';
+// import 'tui-pagination/dist/tui-pagination.min.css';
 
 
 import throttle from 'lodash.throttle';
 import { fillRatings } from '../reuseble/star-rating';
-import { assignModalListeners } from '../modal/modal.js';
+import { assignMovieDetailsModalListener } from '../modal/modal.js';
 
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
@@ -62,15 +62,15 @@ if (getMovie.length === 0) {
     return
    }
    refs.textBox.classList.add('hidden-text')
-  const markupMovie = await makeMarkup(getMovie);
+  const markupMovie = await createMovieCardsMarkup(getMovie);
   movieList(markupMovie);
   fillRatings(refs.filmList);
-  assignModalListeners();
+  assignMovieDetailsModalListener(refs.filmList);
 }
 async function renderMovieList(page) {
   try {
     const movies = await getSearchMovie(page);
-    const markup = await makeMarkup(movies);
+    const markup = await createMovieCardsMarkup(movies);
 
     movieList(markup);
     if (pagination !== null) {
