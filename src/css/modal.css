@@ -172,6 +172,10 @@
     margin-top: 0;
     margin-bottom: 24px;
   }
+  .modal-list__genres {
+    max-height: 50px;
+    overflow: hidden;
+  }
   .modal-wrap {
     width: 704px;
     height: 488px;
@@ -187,7 +191,7 @@
   }
   .modal__text {
     overflow-y: auto;
-    max-height: 120px;
+    max-height: 100px;
   }
   .modal-display {
     margin: 0;
