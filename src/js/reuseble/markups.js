@@ -82,13 +82,13 @@ export function createMoveiDetailsMarkup({
           <li class="modal-list__item">
             <p class="modal-list__text">Vote / Votes</p>
             <div class="modal-list__wrap">
-              <span class="modal-list__vote">${vote_average}</span> /
+              <span class="modal-list__vote">${vote_average.toFixed(1)}</span> /
               <span class="modal-list__vote">${vote_count}</span>
             </div>
           </li>
           <li class="modal-list__item">
             <span class="modal-list__text">Popularity</span>
-            <span class="modal-list__popularity">${popularity}</span>
+            <span class="modal-list__popularity">${popularity.toFixed(1)}</span>
           </li>
           <li class="modal-list__item">
             <span class="modal-list__text">Genre</span>
@@ -101,9 +101,9 @@ export function createMoveiDetailsMarkup({
         <p class="modal__text">
           ${overview}
         </p>
-        <button type="button" class="modal-btn">
-          Add to my library
-        </button>
+        <button type="button" class="modal-btn remove-btn">
+    Add to my library
+  </button>
       </div>
     </div>`;
 }
@@ -122,9 +122,11 @@ export function createHeroMarkup(movie) {
           <p class="hero-text">${movie.overview}</p>
           <div class="buttons">
           <button type="button" class="button watch-trailer" data-id=${
-    movie.id
-  }>Watch trailer</button>
-          <button type="button" class="button more-details film-card-link" data-id=${movie.id}>More details</button>
+            movie.id
+          }>Watch trailer</button>
+          <button type="button" class="button more-details film-card-link" data-id=${
+            movie.id
+          }>More details</button>
           </div>
     </div>
   <div>
