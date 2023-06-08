@@ -1,3 +1,5 @@
+import '../reuseble/img-imports';
+
 document
   .getElementById('open-modal-btn')
   .addEventListener('click', function () {
