@@ -208,3 +208,31 @@
   }
 }
 
+.scroll-up-button{
+  display: inline-block;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: all 250ms cubic-bezier( .42, 0, .58, 1 );
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+.scroll-up-button::after{
+  content: var(--arrow-content, "\2191");
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+.scroll-up-button.show{
+  opacity: 1;
+  visibility: visible;
+}
