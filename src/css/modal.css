@@ -37,7 +37,14 @@
   padding: 0;
   width: 24px;
   height: 24px;
+  color: #ffffff;
+  font-size: 20px;
 }
+.modal__close:hover,
+.modal__close:focus {
+  color: var(--color-orange);
+}
+
 .modal-display {
   margin-top: 26px;
 }
