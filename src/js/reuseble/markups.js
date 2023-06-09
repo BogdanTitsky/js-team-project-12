@@ -10,11 +10,9 @@ function wrapPosterPath(poster_path) {
 
 function extractGenresNames(genre_ids, genres, genresMap) {
   if (genres === undefined) {
-    return genre_ids.slice(0, 2)
-      .map(id => genresMap[id]);
+    return genre_ids.slice(0, 2).map(id => genresMap[id]);
   } else {
-    return genres.slice(0, 2)
-      .map(({name}) => name);
+    return genres.slice(0, 2).map(({ name }) => name);
   }
 }
 
@@ -23,11 +21,23 @@ export async function createMovieCardsMarkup(moviesList, mobileCount = 100) {
   return moviesList
     .map(
       (
-        { id, poster_path, title, genre_ids, genres, release_date, vote_average },
+        {
+          id,
+          poster_path,
+          title,
+          genre_ids,
+          genres,
+          release_date,
+          vote_average,
+        },
         i
       ) => {
         const hideMobile = i >= mobileCount ? 'hide-mobile' : '';
-        const genresString = extractGenresNames(genre_ids, genres, genresMap).join(', ');
+        const genresString = extractGenresNames(
+          genre_ids,
+          genres,
+          genresMap
+        ).join(', ');
         const year = release_date.substring(0, 4);
 
         return `
@@ -73,10 +83,7 @@ export function createMoveiDetailsMarkup({
   return `
   <div class="modal-wrap">
 
-      <button class="modal__close" type="button">
-        <svg class="modal__svg" width="24" height="24">
-          <use href="./img/symbol-defs.svg#icon-close-hero-modal"></use>
-        </svg>
+      <button class="modal__close" type="button">&#10005
       </button>
       <div class="modal-display">
       <img src="${wrapPosterPath(
