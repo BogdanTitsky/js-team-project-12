@@ -15,57 +15,35 @@ async function renderLibrary() {
 
   if (movies.length >= 1) {
     librCatch.classList.add('display');
+    
   }
+   if (movies.length >= 6) {
+     
+     loadmorebtn.style.display = 'block';
+   }
 }
 
 renderLibrary();
 
+
 //load more
+
+
+
+
 const loadmorebtn = document.querySelector('.loadmorebtn');
+let currentItems = 6
 
-loadmorebtn.addEventListener('click', loadPosts);
-
-function loadPosts() {
+loadmorebtn.addEventListener('click', (e) => {
+  e.preventDefault();
   console.log(15)
-  const parsed = getStoredMovies();
-
-  for (let i = 0; i < parsed.length; i++) {
-    const genresMap = getGenresMap()
-    const markup = parsed
-      .map(
-        ({ poster_path, title, vote_average, release_date, genre_ids }) =>
-          `
-  <li class="film-card">
-  <a href="" class="film-card-link">
-    <img class="film-card-img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title}" loading="lazy" />
-    <div class="info">
-    <div>
-      <p class="info-title">
-        ${title}
-      </p>
-      <p class="info-genre">
-          ${genre_ids
-            .slice(0, 2)
-            .map(id => genresMap[id])
-            .join(
-              ', '
-            )} | <span class="info-release-date"> ${release_date.substring(
-            0,
-            4
-          )}</span>
-        </p>
-        </div>
-      <div class="rating">
-        ${makeStarRating(vote_average)}
-      </div>
-
-    </div>
-  </a>
-</li>`
-      )
-      .join('');
-
-    libraryContainer.insertAdjacentHTML('beforeend', markup) ;
+  const Elements = [...document.querySelectorAll('.libr-list li')];
+  for (let i = currentItems; i < currentItems +6 ; i ++) {
+    if (Elements[i]) {
+      Elements[i].style.display = "block"
+    }
   }
+  currentItems += 6;
+} );
 
-}
+
