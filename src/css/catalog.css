@@ -217,13 +217,37 @@ button:active {
 }
  */
 
+
 .tui-ico-prev {
-  background-image: url(../img/symbol-defs.svg#plagin-left);
+  display: inline-block;
+  margin-top: 5px;
+  width: 7px;
+  background-image: url(../img/plagination-back.png);
+  background-size: contain;
+  background-repeat: no-repeat;;
   }
   
 .tui-ico-next {
-  background-image: url(../img/symbol-defs.svg#plagin-right);
+  display: inline-block;
+  width: 7px;
+  margin-top: 5px;
   
+  background-image: url(../img/plagination-next.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width:768px) {
+  .tui-ico-prev {
+    margin-top: 0px;
+    width: 9px;
+    }
+    
+  .tui-ico-next {
+    margin-top: 0px;
+    width: 9px;
+    }
+
 }
 /* .tui-ico-prev,
 .tui-ico-next {
@@ -291,10 +315,10 @@ button:active {
   border: none;
 }
 
-.tui-pagination .tui-page-btn:hover {
+/* .tui-pagination .tui-page-btn:hover {
   background: var(--color-linear-orange);
   border: none;
-}
+} */
 
 body.light-theme .tui-pagination .tui-page-btn:hover {
   color: var(--color-white);
@@ -305,7 +329,7 @@ body.light-theme .tui-pagination .tui-page-btn:hover {
   overflow: hidden;
   width: 40px;
   height: 40px;
-  padding: 7px;
+  /* padding: 7px; */
   font-size: 0;
   line-height: 26px;
   white-space: nowrap;
