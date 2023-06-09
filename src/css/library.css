@@ -45,7 +45,7 @@ text-align: center;
 
 
 padding: 12px 24px;
-transition: transform 300ms;
+transition: all 250ms cubic-bezier( .42, 0, .58, 1 );
 /* transition: background-color 200ms; */
 
 }
@@ -94,9 +94,9 @@ padding-top: 160px;
 }
 }
 .btn-libr:hover {
-background: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
-box-shadow: 1px 1px 14px rgba(1, 1, 1, 0.25);
-transform: scale(105%);
+    color: #F87719;
+    border: 1px solid #F87719;
+    background: #f8f8f8;
 }
 
 
@@ -118,36 +118,31 @@ transform: scale(105%);
 }
 
 .loadmorebtn {
-        display: flex;
-    
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+  display: flex;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 20px;
+background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
 border-radius: 74px;
 border: none;
-
 font-family: 'Roboto';
 font-style: normal;
 font-weight: 500;
 font-size: 12px;
 line-height: 14px;
-
-
 display: none;
 align-items: center;
 text-align: center;
-
-
 padding: 12px 24px;
-transition: transform 300ms;
-
+transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .loadmorebtn:hover,
-.loadmorebtn:focus {
+.loadmorebtn:focus,
+.loadmorebtn:active{
   background: var(--color-white);
   color: var(--color-orange);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+   border: 1px solid #F87719;
 }
 
 
