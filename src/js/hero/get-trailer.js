@@ -1,6 +1,4 @@
-import axios from 'axios';
-
-const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
+import { getTrailer } from '../reuseble/tmdb-api.js';
 
 const popUpCloseSvg = document.querySelector('.hero-PopUp-closeSvg');
 const heroPopUp = document.querySelector('.hero-PopUp');
@@ -33,20 +31,6 @@ export default async function openTrailerModal() {
     },
     { once: true }
   );
-}
-
-async function getTrailer(id) {
-  try {
-    const response = await axios.get(
-      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`
-    );
-
-    console.log(response.data.results[0]);
-
-    return response.data.results[0];
-  } catch (error) {
-    console.log(error);
-  }
 }
 
 function modalTemplate(videoUrl) {

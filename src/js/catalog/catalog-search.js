@@ -1,30 +1,11 @@
-import axios from 'axios';
 import { createMovieCardsMarkup } from '../reuseble/markups.js';
 import Notiflix from 'notiflix';
-
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.min.css';
-
 import throttle from 'lodash.throttle';
 import { fillRatings } from '../reuseble/star-rating';
 import { assignMovieDetailsModalListener } from '../modal/modal.js';
+import { getSearchMovie } from '../reuseble/tmdb-api.js';
 
-const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
-
-async function getSearchMovie(query, page = 1) {
-  try {
-    const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=${page}`
-    );
-    const data = await response.data;
-    const movie = await data.results;
-
-    return movie;
-  } catch (error) {
-    console.error('Помилка отримання масиву фільмів:', error);
-    return [];
-  }
-}
 const refs = {
   form: document.querySelector('.form-search'),
   filmList: document.querySelector('.weelky-trends-list'),
@@ -40,29 +21,30 @@ refs.form.addEventListener('submit', throttle(onSubmitForm, 2000));
 async function onSubmitForm(e) {
   e.preventDefault();
   const form = e.currentTarget;
-  const value = form.elements.search.value.trim();
+  const query = form.elements.search.value.trim();
 
-  if (value === '') {
+  if (query === '') {
     Notiflix.Notify.failure('No value!');
     return;
   }
   clearMarkup();
-  const getMovie = await getSearchMovie(value);
-  await renderMovieList(value, currentPage);
+  const {movies} = await getSearchMovie(query);
+  await renderMovieList(query, currentPage);
 
-  if (getMovie.length === 0) {
+  if (movies.length === 0) {
     refs.textBox.classList.remove('hidden-text');
     return;
   }
   refs.textBox.classList.add('hidden-text');
-  const markupMovie = await createMovieCardsMarkup(getMovie);
+  const markupMovie = await createMovieCardsMarkup(movies);
   movieList(markupMovie);
   fillRatings(refs.filmList);
   assignMovieDetailsModalListener(refs.filmList);
 }
-async function renderMovieList(page) {
+
+async function renderMovieList(query, page) {
   try {
-    const movies = await getSearchMovie(page);
+    const {movies, totalPages} = await getSearchMovie(query, page);
     const markup = await createMovieCardsMarkup(movies);
 
     movieList(markup);
@@ -70,7 +52,7 @@ async function renderMovieList(page) {
       pagination.reset();
     }
     if (movies.length > 0) {
-      initPagination(movies.length);
+      initPagination(totalPages);
     }
   } catch (error) {
     console.error('Помилка при рендерингу списку фільмів:', error);
@@ -120,6 +102,7 @@ function initPagination(totalPages) {
     await renderMovieList(refs.form.elements.search.value.trim(), currentPage);
   });
 }
+
 renderMovieList('', currentPage);
 
 const buttonClose = document.querySelector('.btn-close');
@@ -138,6 +121,7 @@ buttonClose.addEventListener('click', () => {
 function butFunc() {
   buttonClose.classList.toggle('btn-none');
 }
+
 butFunc();
 
 function buttonHider() {
