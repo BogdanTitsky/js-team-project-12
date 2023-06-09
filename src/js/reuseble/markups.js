@@ -83,7 +83,7 @@ export function createMoveiDetailsMarkup({
   return `
   <div class="modal-wrap">
 
-      <button class="modal__close" type="button">&#10006
+      <button class="modal__close" type="button">&#10005
       </button>
       <div class="modal-display">
       <img src="${wrapPosterPath(
