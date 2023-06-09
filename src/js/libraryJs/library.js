@@ -42,6 +42,9 @@ loadmorebtn.addEventListener('click', (e) => {
     if (Elements[i]) {
       Elements[i].style.display = "block"
     }
+    if (Elements.lastIndexOf) {
+      loadmorebtn.style.display= 'none'
+    }
   }
   currentItems += 6;
 } );
