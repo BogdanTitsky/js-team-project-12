@@ -26,12 +26,12 @@ export function toggleStoredMovie(toggledMovie) {
   localStorage.setItem(storageKey, JSON.stringify(storedMovies));
 }
 
-export function isMovieStored(movie) {
+export function isMovieStored(movieId) {
   let storedMovies = getStoredMovies();
 
   const indexLocal = storedMovies.findIndex(
-    film => film.id === movie.id,
+    film => film.id === movieId,
   );
 
-  return indexLocal === -1;
+  return indexLocal !== -1;
 }

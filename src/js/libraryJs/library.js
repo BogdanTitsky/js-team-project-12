@@ -9,7 +9,7 @@ const librCatch = document.querySelector('.libr-catch');
 
 async function renderLibrary() {
   const movies = getStoredMovies()
-  libraryContainer.innerHTML = await createMovieCardsMarkup(movies, 9);
+  libraryContainer.insertAdjacentHTML('beforeend', await createMovieCardsMarkup(movies, 9));
   fillRatings(libraryContainer);
   assignMovieDetailsModalListener(libraryContainer);
 

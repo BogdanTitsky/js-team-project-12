@@ -34,7 +34,7 @@ getUpcoming().then(async films => {
   // console.log(filmUpcoming[random]);
 
   function changeBtnName() {
-    const exists = isMovieStored(filmUpcoming[random]);
+    const exists = isMovieStored(filmUpcoming[random].id);
 
     if (!exists) {
       upcomingBtnRef.classList.remove('remove-btn');
