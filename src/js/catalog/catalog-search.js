@@ -2,10 +2,8 @@ import axios from 'axios';
 import { createMovieCardsMarkup } from '../reuseble/markups.js';
 import Notiflix from 'notiflix';
 
-
 import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.min.css';
-
 
 import throttle from 'lodash.throttle';
 import { fillRatings } from '../reuseble/star-rating';
@@ -13,55 +11,50 @@ import { assignMovieDetailsModalListener } from '../modal/modal.js';
 
 const apiKey = '183c3cacc9c38c09c14d38798ccfe9d7';
 
-
 async function getSearchMovie(query, page = 1) {
   try {
-    const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=${page}`);
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=${page}`
+    );
     const data = await response.data;
     const movie = await data.results;
 
     return movie;
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Помилка отримання масиву фільмів:', error);
     return [];
   }
 }
 const refs = {
-form: document.querySelector('.form-search'),
-filmList: document.querySelector('.weelky-trends-list'),
-textBox: document.querySelector('.catalog-text-box'),
-paginationContainer: document.querySelector('#tui-pagination-container')
-}
-
+  form: document.querySelector('.form-search'),
+  filmList: document.querySelector('.weelky-trends-list'),
+  textBox: document.querySelector('.catalog-text-box'),
+  paginationContainer: document.querySelector('#tui-pagination-container'),
+};
 
 let currentPage = 1;
 let pagination = null;
 
-
-
-refs.form.addEventListener('submit', throttle(onSubmitForm, 2000))
-
+refs.form.addEventListener('submit', throttle(onSubmitForm, 2000));
 
 async function onSubmitForm(e) {
-   e.preventDefault();
+  e.preventDefault();
   const form = e.currentTarget;
   const value = form.elements.search.value.trim();
 
+  if (value === '') {
+    Notiflix.Notify.failure('No value!');
+    return;
+  }
+  clearMarkup();
+  const getMovie = await getSearchMovie(value);
+  await renderMovieList(value, currentPage);
 
-  if (value === "") {
-   Notiflix.Notify.failure('No value!');
-return
-}
-clearMarkup();
-const getMovie = await getSearchMovie(value);
-await renderMovieList(value, currentPage);
-
-if (getMovie.length === 0) {
-   refs.textBox.classList.remove('hidden-text')
-    return
-   }
-   refs.textBox.classList.add('hidden-text')
+  if (getMovie.length === 0) {
+    refs.textBox.classList.remove('hidden-text');
+    return;
+  }
+  refs.textBox.classList.add('hidden-text');
   const markupMovie = await createMovieCardsMarkup(getMovie);
   movieList(markupMovie);
   fillRatings(refs.filmList);
@@ -85,11 +78,11 @@ async function renderMovieList(page) {
 }
 
 function movieList(markup) {
-   refs.filmList.innerHTML = markup;
+  refs.filmList.innerHTML = markup;
 }
 
 function clearMarkup() {
-   refs.filmList.innerHTML = '';
+  refs.filmList.innerHTML = '';
 }
 
 function initPagination(totalPages) {
@@ -130,33 +123,29 @@ function initPagination(totalPages) {
 renderMovieList('', currentPage);
 
 const buttonClose = document.querySelector('.btn-close');
-const inputArea = document.querySelector('.search-input__area')
+const inputArea = document.querySelector('.search-input__area');
 
+inputArea.addEventListener('keyup', () => {
+  buttonHider();
+});
 
+buttonClose.addEventListener('click', () => {
+  inputArea.value = '';
 
-inputArea.addEventListener('keyup', ()=> {
-  buttonHider()
-})
-
-buttonClose.addEventListener('click', ()=> {
-  inputArea.value='';
   buttonClose.classList.add('btn-none');
-})
+});
 
-function butFunc () {
-  buttonClose.classList.toggle('btn-none')
+function butFunc() {
+  buttonClose.classList.toggle('btn-none');
 }
 butFunc();
 
-function buttonHider () {
+function buttonHider() {
   console.log('buttonHider start');
-  if (inputArea.value.length===0) {
-    buttonClose.classList.add('btn-none')
+  if (inputArea.value.length === 0) {
+    buttonClose.classList.add('btn-none');
+  } else {
+    buttonClose.classList.remove('btn-none');
+    console.log('else');
   }
-  else {
-    buttonClose.classList.remove('btn-none')
-    console.log ('else')
-  }
-
-
 }

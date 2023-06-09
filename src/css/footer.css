@@ -196,7 +196,7 @@
   max-width: 550px;
   padding: 20px;
   z-index: 1;
-  margin: 30px 15px;
+  margin: 30px auto;
 }
 .team-modal.open {
   visibility: visible;
