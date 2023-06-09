@@ -80,6 +80,8 @@ export function createMoveiDetailsMarkup({
   genres,
   overview,
 }) {
+  const genresModal = 'Unknown';
+  const descriptionModal = overview ? overview : 'Sorry! No description.';
   return `
   <div class="modal-wrap">
 
@@ -106,14 +108,14 @@ export function createMoveiDetailsMarkup({
           </li>
           <li class="modal-list__item">
             <span class="modal-list__text">Genre</span>
-            <span class="modal-list__genres">${genres
-              .map(({ name }) => name)
-              .join(', ')}</span>
+            <span class="modal-list__genres">${
+              genres.map(({ name }) => name).join(', ') || genresModal
+            } </span>
           </li>
         </ul>
         <p class="modal__about">About</p>
         <p class="modal__text">
-          ${overview}
+          ${descriptionModal}
         </p>
         <button type="button" class="modal-btn remove-btn">
     Add to my library
