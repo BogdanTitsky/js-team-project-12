@@ -69,8 +69,11 @@
   cursor: pointer;
   margin-left: 5px;
   text-decoration: underline;
+  transition: all 250ms cubic-bezier( .42, 0, .58, 1 );
 }
-
+.footer-btn:hover, .footer-btn:focus, .footer-btn:active{
+  color: #F87719;
+}
 .team-modal-list {
   display: flex;
   flex-wrap: wrap;

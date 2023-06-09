@@ -112,7 +112,7 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .form-search {
     padding-top: 80px;
   }
@@ -290,6 +290,10 @@ button:active {
   vertical-align: middle;
   border-radius: 50%;
   border: 1px solid #595959;
+  transition: all 250ms cubic-bezier( .42, 0, .58, 1 );
+}
+.tui-page-btn:hover, .tui-page-btn:active, .tui-page-btn:focus{
+  background: var(--color-linear-orange);
 }
 @media screen and (min-width: 768px){
   .tui-pagination .tui-page-btn {

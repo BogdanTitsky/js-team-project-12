@@ -84,7 +84,7 @@ color: inherit;
   font-size: 14px;
   line-height: 1.16;
   text-transform: uppercase;
-  
+  transition: all 250ms cubic-bezier( .42, 0, .58, 1 );
   color: #B7B7B7;
 }
 
@@ -218,7 +218,7 @@ display: flex;
 align-items: center;
 text-align: center;
 text-transform: uppercase;
-
+transition: all 250ms cubic-bezier( .42, 0, .58, 1 );
 color: #B7B7B7;
 
 }
@@ -305,7 +305,7 @@ body.light .menu-button {
   font-size: 14px;
   line-height: 1.16;
   text-transform: uppercase;
-  
+  transition: all 250ms cubic-bezier( .42, 0, .58, 1 );
   color:var(--color-white)
 }
 

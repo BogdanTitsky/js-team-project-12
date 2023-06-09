@@ -45,7 +45,7 @@ text-align: center;
 
 
 padding: 12px 24px;
-transition: transform 300ms;
+transition: all 250ms cubic-bezier( .42, 0, .58, 1 );
 /* transition: background-color 200ms; */
 
 }
@@ -85,9 +85,9 @@ padding-top: 160px;
 }
 }
 .btn-libr:hover {
-background: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
-box-shadow: 1px 1px 14px rgba(1, 1, 1, 0.25);
-transform: scale(105%);
+    color: #F87719;
+    border: 1px solid #F87719;
+    background: #f8f8f8;
 }
 
 
@@ -120,5 +120,11 @@ transform: scale(105%);
     text-align: center;
     margin: 0 auto;
     display: block;
-
+    margin-top: 20px;
+    transition: all 250ms cubic-bezier( .42, 0, .58, 1 );
+}
+.loadmorebtn:active, .loadmorebtn:focus, .loadmorebtn:hover{
+    color: #F87719;
+    border: 1px solid #F87719;
+    background: #f8f8f8;
 }
