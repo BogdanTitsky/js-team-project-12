@@ -1,5 +1,6 @@
 import { getMovieDetailsInfo } from '../reuseble/tmdb-api.js';
 import { createMoveiDetailsMarkup } from '../reuseble/markups.js';
+import { isMovieStored, toggleStoredMovie } from '../reuseble/local-storage.js';
 
 const modalContainer = document.getElementById('modal-backdrop');
 let closeModalBtn;
@@ -25,15 +26,10 @@ export async function movieDetailsModalListener(event) {
   const modalBtnAdd = document.querySelector('.modal-btn');
   // console.log(modalBtnAdd);
 
-  function changeModalBtnName() {
-    // const key = 'upcomingFilms';
-    let upcomingFilms = JSON.parse(localStorage.getItem(key)) || [];
+  function changeBtnName() {
+    const exists = isMovieStored(movieDatails.id);
 
-    const indexLocal = upcomingFilms.findIndex(
-      film => film.id === movieDatails.id
-    );
-
-    if (indexLocal === -1) {
+    if (!exists) {
       modalBtnAdd.classList.remove('remove-btn');
       modalBtnAdd.textContent = 'Add to my library';
     } else {
@@ -42,28 +38,13 @@ export async function movieDetailsModalListener(event) {
     }
   }
 
-  const key = 'upcomingFilms';
   modalBtnAdd.addEventListener('click', e => {
     e.preventDefault();
-    let upcomingFilms = JSON.parse(localStorage.getItem(key)) || [];
-
-    const indexLocal = upcomingFilms.findIndex(
-      film => film.id === movieDatails.id
-    );
-    if (indexLocal === -1) {
-      upcomingFilms.push(movieDatails);
-      // console.log('Добавляет в localStorage');
-    } else {
-      upcomingFilms.splice(indexLocal, 1);
-      // console.log('Удаляет из localStorage');
-    }
-
-    localStorage.setItem(key, JSON.stringify(upcomingFilms));
-
-    changeModalBtnName();
+    toggleStoredMovie(movieDatails);
+    changeBtnName();
   });
 
-  changeModalBtnName();
+  changeBtnName();
 }
 
 export function showModal() {

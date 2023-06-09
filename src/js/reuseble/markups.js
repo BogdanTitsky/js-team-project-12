@@ -8,19 +8,26 @@ function wrapPosterPath(poster_path) {
     : commingSoon;
 }
 
+function extractGenresNames(genre_ids, genres, genresMap) {
+  if (genres === undefined) {
+    return genre_ids.slice(0, 2)
+      .map(id => genresMap[id]);
+  } else {
+    return genres.slice(0, 2)
+      .map(({name}) => name);
+  }
+}
+
 export async function createMovieCardsMarkup(moviesList, mobileCount = 100) {
   const genresMap = await getGenresMap();
   return moviesList
     .map(
       (
-        { id, poster_path, title, genre_ids, release_date, vote_average },
+        { id, poster_path, title, genre_ids, genres, release_date, vote_average },
         i
       ) => {
         const hideMobile = i >= mobileCount ? 'hide-mobile' : '';
-        const genresString = genre_ids
-          .slice(0, 2)
-          .map(id => genresMap[id])
-          .join(', ');
+        const genresString = extractGenresNames(genre_ids, genres, genresMap).join(', ');
         const year = release_date.substring(0, 4);
 
         return `

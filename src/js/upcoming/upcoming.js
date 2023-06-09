@@ -1,6 +1,7 @@
 import { getUpcoming } from './get-upcoming';
 import { getGenresById } from './get-genres-by-id';
 import { createUpcomingMarkup, renderMarkup } from './upcoming-markup';
+import { isMovieStored, toggleStoredMovie } from '../reuseble/local-storage.js';
 
 // console.log(containerUpcoming);
 const upcomingBtnRef = document.querySelector('#upcoming-btn');
@@ -33,14 +34,9 @@ getUpcoming().then(async films => {
   // console.log(filmUpcoming[random]);
 
   function changeBtnName() {
-    const key = 'upcomingFilms';
-    let upcomingFilms = JSON.parse(localStorage.getItem(key)) || [];
+    const exists = isMovieStored(filmUpcoming[random].id);
 
-    const indexLocal = upcomingFilms.findIndex(
-      film => film.id === filmUpcoming[random].id
-    );
-
-    if (indexLocal === -1) {
+    if (!exists) {
       upcomingBtnRef.classList.remove('remove-btn');
       upcomingBtnRef.textContent = 'Add to my library';
     } else {
@@ -49,24 +45,9 @@ getUpcoming().then(async films => {
     }
   }
 
-  const key = 'upcomingFilms';
   upcomingBtnRef.addEventListener('click', e => {
     e.preventDefault();
-    let upcomingFilms = JSON.parse(localStorage.getItem(key)) || [];
-
-    const indexLocal = upcomingFilms.findIndex(
-      film => film.id === filmUpcoming[random].id
-    );
-    if (indexLocal === -1) {
-      upcomingFilms.push(filmUpcoming[random]);
-      // console.log('Добавляет в localStorage');
-    } else {
-      upcomingFilms.splice(indexLocal, 1);
-      // console.log('Удаляет из localStorage');
-    }
-
-    localStorage.setItem(key, JSON.stringify(upcomingFilms));
-
+    toggleStoredMovie(filmUpcoming[random]);
     changeBtnName();
   });
 

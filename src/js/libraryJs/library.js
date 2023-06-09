@@ -1,78 +1,36 @@
+import { getStoredMovies } from '../reuseble/local-storage.js';
+import { fillRatings, makeStarRating } from '../reuseble/star-rating';
+import { createMovieCardsMarkup } from '../reuseble/markups.js';
+import { assignMovieDetailsModalListener } from '../modal/modal.js';
+import getGenresMap from '../reuseble/genres.js';
 
-// const libraryCard = document.querySelector('.library-card');
-const libraryCard = document.querySelector('.libr-list');
-const librList = document.querySelector('.libr-list');
+const libraryContainer = document.querySelector('.libr-list');
 const librCatch = document.querySelector('.libr-catch');
-const key = 'upcomingFilms';
-import { makeStarRating } from '../reuseble/star-rating';
-import getGenresMap from '../reuseble/genres';
 
+async function renderLibrary() {
+  const movies = getStoredMovies()
+  libraryContainer.insertAdjacentHTML('beforeend', await createMovieCardsMarkup(movies, 9));
+  fillRatings(libraryContainer);
+  assignMovieDetailsModalListener(libraryContainer);
 
-if (localStorage.length) {
-  const storageLoc = localStorage.getItem(key);
-
-  const parsed = JSON.parse(storageLoc);
-  console.log(parsed);
-  createUpcomingMarkup(parsed);
-
-  if (parsed.length >= 1) {
+  if (movies.length >= 1) {
     librCatch.classList.add('display');
   }
 }
 
-
-
-async function createUpcomingMarkup(parsed) {
-
-    const genresMap = await getGenresMap()
-    const markup = parsed
-      .map(
-        ({ poster_path, title, vote_average, release_date, genre_ids }) =>
-          `
-  <li class="film-card">
-  <a href="" class="film-card-link">
-    <img class="film-card-img" src="https://image.tmdb.org/t/p/w300${poster_path}" alt="${title}" loading="lazy" />
-     <div class="info">
-        <p class="info-title">
-          ${title}
-        </p>
-      <div class="genre-rating">
-        <p class="info-genre">
-          ${genre_ids
-            .slice(0, 2)
-            .map(id => genresMap[id])
-            .join(
-              ', '
-            )} | <span class="info-release-date"> ${release_date.substring(
-            0,
-            4
-          )}</span>
-        </p>
-
-        <div class="rating">
-          ${makeStarRating(vote_average)}
-        </div>
-      </div>
-    </div>
-  </a>
-</li>`
-      )
-      .join('');
-    librList.innerHTML = markup;
-  }
+renderLibrary();
 
 //load more
 const loadmorebtn = document.querySelector('.loadmorebtn');
 
- loadmorebtn.addEventListener('click', loadPosts);
+loadmorebtn.addEventListener('click', loadPosts);
 
 function loadPosts() {
-   console.log(15)
-   const posts = localStorage.getItem(key);
-   const parsed = JSON.parse(posts);
+  console.log(15)
+  const parsed = getStoredMovies();
 
-   for (let i = 0; i < posts.length; i++) {
-      const genresMap = getGenresMap()
+  for (let i = 0; i < parsed.length; i++) {
+    const genresMap = getGenresMap()
     const markup = parsed
       .map(
         ({ poster_path, title, vote_average, release_date, genre_ids }) =>
@@ -107,7 +65,7 @@ function loadPosts() {
       )
       .join('');
 
-    librList.insertAdjacentHTML =('beforeend',markup) ;
-    }
+    libraryContainer.insertAdjacentHTML('beforeend', markup) ;
+  }
 
- }
+}
