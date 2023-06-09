@@ -41,7 +41,7 @@
 </li>`}).join("")}function ur({title:e,poster_path:t,vote_average:n,vote_count:r,popularity:s,genres:o,overview:i}){return`
   <div class="modal-wrap">
 
-      <button class="modal__close" type="button">&#10006
+      <button class="modal__close" type="button">&#10005
       </button>
       <div class="modal-display">
       <img src="${Ye(t)}" alt="${e}" class="modal__img" />
