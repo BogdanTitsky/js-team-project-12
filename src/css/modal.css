@@ -18,7 +18,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 280px;
-  height: 847px;
+  max-height: 847px;
   background: black;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 20px;
@@ -110,9 +110,6 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
-  overflow-y: auto;
-  max-height: 32px;
-
   display: flex;
   align-items: center;
 
@@ -141,7 +138,7 @@
   line-height: 20px;
   margin-bottom: 16px;
   overflow-y: auto;
-  max-height: 150px;
+  max-height: 120px;
 
   color: #f8f8f8;
 }
@@ -179,10 +176,7 @@
     margin-top: 0;
     margin-bottom: 24px;
   }
-  .modal-list__genres {
-    max-height: 50px;
-    overflow: hidden;
-  }
+
   .modal-wrap {
     width: 704px;
     height: 488px;
@@ -198,7 +192,7 @@
   }
   .modal__text {
     overflow-y: auto;
-    max-height: 100px;
+    max-height: 120px;
   }
   .modal-display {
     margin: 0;
@@ -244,6 +238,6 @@
     font-size: 14px;
     line-height: 20px;
     overflow-y: auto;
-    max-height: 160px;
+    max-height: 180px;
   }
 }
